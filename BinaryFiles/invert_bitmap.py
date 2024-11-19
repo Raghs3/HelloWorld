@@ -59,7 +59,7 @@ with open(source_file, 'rb') as bat:  # No encoding
 
                 for index, bite in enumerate(image):
                     # Reverse the bits in each byte
-                    image[index] = bite ^ 255
+                    image[index] = bite ^ 255  # XOR bitwise operator
 
                 # Now read the remainder of the file (if any)
                 remainder = bat.read()
