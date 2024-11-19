@@ -1,7 +1,7 @@
 import os
 
-source_file = 'bm_test.txt'
-# source_file = 'vintage-halloween-bat.bmp'
+# source_file = 'bm_test.txt'
+source_file = 'vintage-halloween-bat.bmp'
 inverted_file = f'inverted-{source_file}'
 
 with open(source_file, 'rb') as bat:  # No encoding
