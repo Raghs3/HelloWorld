@@ -9,4 +9,4 @@ for b in equation:
     print(b, end=", ")
 print()
 
-print(equation.decode('utf-8'))  # symbol for pi is encoded using CF 80 in utf-8, superscript 2 is encoded using c2 b2
+print(equation.decode('utf-8'))  # symbol for pi is encoded using CF 80 in utf-8, superscript 2 char is encoded using c2 b2
