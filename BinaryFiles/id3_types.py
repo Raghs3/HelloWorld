@@ -117,4 +117,3 @@ frame_types = {
     b'WPUB': 'Publishers official webpage',
     b'WXXX': 'User defined URL link frame',
 }
-
