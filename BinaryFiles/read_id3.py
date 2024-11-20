@@ -94,19 +94,21 @@ with open(filename, 'rb') as mp3_file:
             print(f'Extended header, size is {ext_size} bytes.')
 
             # We're not interested in the extended header, seek past it.
-            Block_1
+            mp3_file.seek(ext_size, SEEK_CUR)
 
         while True:
             print('*' * 80)
             print(f'Current file position: {mp3_file.tell()}')
             # read 10 byte frame header
-            Block_2
+            frame_header = mp3_file.read(10)
+            frame_id = frame_header[:4]
 
             if frame_id in frame_types:
                 print(f'Found frame type: {frame_id}')
 
                 # We need the frame size.
-                Block_3
+                frame_size = int.from_bytes(frame_header[4:8], 'big')
+                print(f'Frame size: {frame_size}')
 
                 # Only process text, WXXX and APIC frames
                 if frame_id.startswith(b'T'):  # a text field
@@ -131,7 +133,12 @@ with open(filename, 'rb') as mp3_file:
                     description_and_url = mp3_file.read(frame_size - 1)
 
                     # Split on 00 byte to get the 2 parts
-                    Block_4
+                    parts = description_and_url.split(b'\x00')
+                    description = parts[0].decode(encoding)
+                    url = parts[-1].decode('iso-8859-1')
+                    print(f'{frame_types[frame_id]}:')
+                    print(f'\tDescription: {description}')
+                    print(f'\tURL: {url}')
 
                 elif frame_id == b'APIC':
                     frame_data_start = mp3_file.tell()
