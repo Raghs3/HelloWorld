@@ -24,15 +24,17 @@ def encircled_square(length: int) -> None:
     then encloses it in a circle."""
 
     square(length)
-    angle = math.radians(45)
-    radius = length * math.cos(angle)
+    angle = radians(45)  # math.radians(45)  # math prefix not req as we imported them directly to namespace
+    radius = length * cos(angle)  # math.cos(angle)
     turtle.right(135)
     turtle.circle(radius)
+    turtle.left(135)  # takes same time, draws pattern differently and leaves turtle in same dirn as it started
 
 
-encircled_square(300)
-# for s in range(72):
-#     square(120)
-#     turtle.left(5)
+# encircled_square(300)
+turtle.speed('fast')
+for s in range(72):
+    encircled_square(120)
+    turtle.left(5)
 
 turtle.done()
