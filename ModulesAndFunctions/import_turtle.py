@@ -32,9 +32,15 @@ def encircled_square(length: int) -> None:
 
 
 # encircled_square(300)
-turtle.speed('fast')
-for s in range(72):
-    encircled_square(120)
-    turtle.left(5)
+# turtle.speed('fast')
+# for s in range(72):
+#     encircled_square(120)
+#     turtle.left(5)
+#
+# turtle.done()
 
-turtle.done()
+print(dir())  # output is a list containing all the names that exist in our namespace, sorted alphabetically, `__` pronounced as dunder
+
+# namespace is a container for variable names
+# score is where that variable exists
+# scope of a variable means the places in our code where it can be used
