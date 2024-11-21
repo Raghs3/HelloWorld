@@ -23,7 +23,7 @@ def encircled_square(length: int) -> None:
     """Draws a square of length `length`,
     then encloses it in a circle."""
 
-    square(length)
+    square(length)  # doesn't find in local namespace, then looks in enclosing scope which is global scope in this case
     angle = radians(45)  # math.radians(45)  # math prefix not req as we imported them directly to namespace
     radius = length * cos(angle)  # math.cos(angle)
     turtle.right(135)
@@ -33,7 +33,7 @@ def encircled_square(length: int) -> None:
     print(f"locals: {locals()}")  # shows the namespace dict, i.e. values too
 
 
-encircled_square(300)
+# encircled_square(300)
 # turtle.speed('fast')
 # for s in range(72):
 #     encircled_square(120)
@@ -48,3 +48,10 @@ print(dir())  # output is a list containing all the names that exist in our name
 # scope of a variable means the places in our code where it can be used
 # or, scope is where an object exists or where it can be used
 # modules, functions and classes can create a new scope
+
+g = globals()
+print(g['square'])
+
+print(dir(__builtins__))
+
+# LEGB, order Python searches for names
