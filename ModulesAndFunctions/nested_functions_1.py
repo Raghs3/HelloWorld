@@ -4,6 +4,7 @@ def greet_pythons(items: list) -> None:
     print(f'local namespace in `greet_pythons`(1): {locals()}')
     # variables defined in enclosing scope become available in inner scopes
     def make_greeting(item: str) -> str:
+        nonlocal greeting  # makes it so change in local happens in enclosing too, (pls avoid), now only one object
         print(f'local namespace in `make_greeting(1): {locals()}')
         greeting = 'Hi'  # now greeting doesn't refer to same object as outer function
         print(f'The ID of `greeting` in `make_greeting` id {id(greeting)}')
