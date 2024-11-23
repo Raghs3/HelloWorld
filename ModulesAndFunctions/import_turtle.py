@@ -15,9 +15,11 @@ from math import radians, cos
 
 def square(length: int) -> None:
     """Draws a square of length `length`"""
+    inner_forward = forward  # don't use this method, use as last resort
+    inner_right = right
     for side in range(4):
-        forward(length)  # turtle.forward(length)
-        right(90)  # turtle.right(90)
+        inner_forward(length)  # turtle.forward(length)
+        inner_right(90)  # turtle.right(90)
 
 
 def encircled_square(length: int) -> None:
@@ -36,10 +38,12 @@ def encircled_square(length: int) -> None:
 
 # encircled_square(300)
 speed('fast')  # turtle.speed('fast')
+Screen().tracer(0)  # disable turtle animation
 for s in range(72):
     encircled_square(120)
     left(5)  # turtle.left(5)
-
+# improve the way the code works, before resorting to quick fixes
+Screen().update()  # update the screen
 done()  # turtle.done()
 
 print(dir())  # output is a list containing all the names that exist in our namespace, sorted alphabetically, `__` pronounced as dunder
