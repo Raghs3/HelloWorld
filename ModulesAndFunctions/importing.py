@@ -6,6 +6,6 @@ area = area_of_square(40)  # only namespace is affected in different ways of imp
 print(area)
 
 print('Global namespace')
-namespace = globals().copy()
+namespace = globals().copy()  # if you don't use copy, error is generated
 for name, obj in namespace.items():
     print(name, obj)
