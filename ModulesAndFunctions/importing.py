@@ -1,3 +1,5 @@
+"""Module for investigating importing and namespace"""
+
 import better_code
 from better_code import area_of_square
 
