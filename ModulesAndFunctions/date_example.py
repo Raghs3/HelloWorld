@@ -25,7 +25,8 @@ difference = end - start  # can't add dates
 print(repr(difference))
 print(difference == duration)
 
-
+# if you go east sun rises 1 hour earlier for every 15 degrees east you go
+# if you go west sun rises 1 hour later for every 15 degrees west you go
 
 # year = start.year
 # month = start.month
