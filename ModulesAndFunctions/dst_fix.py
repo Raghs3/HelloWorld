@@ -15,7 +15,7 @@ hour = 0
 minute = 25
 
 td = timedelta(minutes=5)
-# assumed that we start with a valid local time
+# assumed that we start with a VALID local time
 uk_time = datetime(year, month, day, hour, minute, tzinfo=uk_tz)
 utc_time = uk_time.astimezone(timezone.utc)
 utc_time = utc_time + td  # causes invalid time to be created
