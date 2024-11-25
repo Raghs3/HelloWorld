@@ -44,4 +44,5 @@ for zone in zones:
     city = zone.split('/')[-1]
     print(f'The time in {city} is {required_time} {required_time.tzname()}')
     # print(f'The time in {city} is {required_time.strftime('%d/%m/%Y %H:%M:%S %z %Z')}')
+
 # strftime doesn't modify values
