@@ -15,3 +15,4 @@ ny_now = utc_now.astimezone(tz=new_york_tz)
 print(ny_now)
 
 # error coz of windows, got to install tzdata module and no need to install zoneinfo (for me)
+# my python version is new so already contains zoneinfo
