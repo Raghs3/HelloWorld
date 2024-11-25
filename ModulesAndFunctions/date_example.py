@@ -19,7 +19,7 @@ d2 = datetime.timedelta(minutes=120)
 d3 = datetime.timedelta(seconds=7200)
 
 print(d1, d2, d3, sep=", ")  # all values are same
-print(repr(d1), repr(d2), repr(d3), sep=', ')  # all normalised to seconds, only days, seconds and milliseconds
+print(repr(d1), repr(d2), repr(d3), sep=', ')  # all normalised to seconds, only days, seconds and microseconds
 
 difference = end - start  # can't add dates
 print(repr(difference))
