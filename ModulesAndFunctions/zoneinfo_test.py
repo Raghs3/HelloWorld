@@ -18,5 +18,13 @@ france_tz = zoneinfo.ZoneInfo('Europe/Paris')
 france_now = utc_now.astimezone(tz=france_tz)
 print(france_now)
 
-# error coz of windows, got to install tzdata module and no need to install zoneinfo (for me)
+print()
+print('Available timezone keys')
+print('-' * 23)
+
+for zone_key in sorted(zoneinfo.available_timezones()):
+    print(zone_key)
+
+
+# error in importing coz of windows, got to install tzdata module and no need to install zoneinfo (for me)
 # my python version is new so already contains zoneinfo
