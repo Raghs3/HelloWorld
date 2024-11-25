@@ -19,7 +19,7 @@ td = timedelta(minutes=125)
 utc_time = datetime(year, month, day, hour, minute, tzinfo=timezone.utc)
 utc_time = utc_time + td
 uk_time = datetime(year, month, day, hour, minute, tzinfo=uk_tz)
-uk_time = uk_time + td
+uk_time = uk_time + td  # causes invalid time to be created
 uk_to_utc = uk_time.astimezone(timezone.utc)
 print(f'Line 19/20 - utc_time:\t {utc_time}')
 print(f'Line 21/22 - uk_time:\t {uk_time}')
