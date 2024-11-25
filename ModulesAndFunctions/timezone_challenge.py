@@ -33,6 +33,7 @@ zones = (
 # Get the current time, in UTC
 # utc_now = datetime.now(tz=timezone.utc)
 local_now = datetime.now()
+# local_now = local_now.replace(microsecond=0)
 
 for zone in zones:
     tz = zoneinfo.ZoneInfo(zone)
@@ -41,4 +42,6 @@ for zone in zones:
     required_time = local_now.astimezone(tz)
     # The city is the last item, after splitting the zone at the /
     city = zone.split('/')[-1]
-    print(f'The time in {city} is {required_time}')
+    # print(f'The time in {city} is {required_time}')
+    print(f'The time in {city} is {required_time.strftime('%d/%m/%Y %H:%M:%S %z %Z')}')
+# strftime doesn't modify values
