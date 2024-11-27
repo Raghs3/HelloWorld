@@ -11,14 +11,19 @@ mainWindow.geometry('640x480+8+400')
 label = tkinter.Label(mainWindow, text="Hello World")
 label.pack(side='top')
 
-canvas = tkinter.Canvas(mainWindow, relief='raised', borderwidth=1)
-canvas.pack(side='left')  # , fill=tkinter.BOTH, expand=True)  # using X instead of Y doesn't work, have to use extra parameter, works if side is top, but then Y doesnt work
+leftFrame = tkinter.Frame(mainWindow)
+leftFrame.pack(side='left', anchor='n', fill=tkinter.Y, expand=False)
+
+canvas = tkinter.Canvas(leftFrame, relief='raised', borderwidth=1)
+canvas.pack(side='left', anchor='e')  # , fill=tkinter.BOTH, expand=True)  # using X instead of Y doesn't work, have to use extra parameter, works if side is top, but then Y doesn't work
 # X for horizontal, Y for vertical
-button1 = tkinter.Button(mainWindow, text="Button1")
-button2 = tkinter.Button(mainWindow, text="Button2")
-button3 = tkinter.Button(mainWindow, text="Button3")
-button1.pack(side='left')
-button2.pack(side='left')
-button3.pack(side='left')  # when widgets share same side, placed adjacent to each other
+rightFrame = tkinter.Frame(mainWindow)
+rightFrame.pack(side='right', anchor='n', expand=True)
+button1 = tkinter.Button(rightFrame, text="Button1")
+button2 = tkinter.Button(rightFrame, text="Button2")
+button3 = tkinter.Button(rightFrame, text="Button3")
+button1.pack(side='top', anchor='n')
+button2.pack(side='top', anchor='s')  # when widgets share same side, placed adjacent to each other, if no anchor used
+button3.pack(side='top', anchor='e')  # anchor affects widget based on which edge side is packed, east & west for top, north & south for left
 
 mainWindow.mainloop()
