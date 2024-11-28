@@ -3,6 +3,8 @@ try:
 except ImportError:  # python 2
     import Tkinter as tkinter
 # tkinter._test()
+import os
+
 mainWindow = tkinter.Tk()  # route window
 
 mainWindow.title("Hello World")
@@ -25,7 +27,8 @@ mainWindow.rowconfigure(4, weight=3)
 fileList = tkinter.Listbox(mainWindow)
 fileList.grid(row=1, column=0, sticky='nsew', rowspan=2)
 fileList.config(border=2, relief='sunken')
-
+for zone in os.listdir('/Windows/System32'):  # '/usr/bin' for mac, linux
+    fileList.insert(tkinter.END, zone)
 
 
 mainWindow.mainloop()
