@@ -30,5 +30,8 @@ fileList.config(border=2, relief='sunken')
 for zone in os.listdir('/Windows/System32'):  # '/usr/bin' for mac, linux
     fileList.insert(tkinter.END, zone)
 
+listScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=fileList.yview)
+listScroll.grid(row=1, column=1, sticky='nsw', rowspan=2)
+fileList['yscrollcommand'] = listScroll.set
 
 mainWindow.mainloop()
