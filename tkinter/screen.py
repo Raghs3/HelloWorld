@@ -86,6 +86,12 @@ daySpin.grid(row=1, column=0)
 monthSpin.grid(row=1, column=1)
 yearSpin.grid(row=1, column=2)
 
+# Buttons
+okButton = tkinter.Button(mainWindow, text='OK')
+cancelButton = tkinter.Button(mainWindow, text='Cancel', command=mainWindow.destroy)  # if we use parenthesis after function, it calls function, so here no parenthesis as we don't want to call the function
+okButton.grid(row=4, column=3, sticky='e')                                              # destroy gives error as widget already destroyed when running
+cancelButton.grid(row=4, column=4, sticky='w')
+
 mainWindow.mainloop()
 
 print(rbValue.get())
