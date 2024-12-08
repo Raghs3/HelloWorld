@@ -16,12 +16,14 @@ def centre_text(*args, sep=' ', end='\n', file=None, flush=False):
     print(" " * left_margin, text, end=end, file=file, flush=flush)
 
 
+with open("centred", mode='w') as centred_file:
+
 # call the function
 # print(python_food())  # all functions return something, if nothing specified it returns None
-centre_text("spam and eggs")
-centre_text("spam, spam and eggs")
-centre_text(12)  # gives error as len not defined for int, have to convert argument to string
-centre_text("spam, spam, spam, and spam")
+    centre_text("spam and eggs", file=centred_file)
+    centre_text("spam, spam and eggs", file=centred_file)
+    centre_text(12, file=centred_file)  # gives error as len not defined for int, have to convert argument to string
+    centre_text("spam, spam, spam, and spam", file=centred_file)
 
-# print("First", "second", 3, 4, "spam")  # *args, so can put multiple arguments seperated by comma
-centre_text("First", "second", 3, 4, "spam", sep=":")
+    # print("First", "second", 3, 4, "spam")  # *args, so can put multiple arguments seperated by comma
+    centre_text("First", "second", 3, 4, "spam", sep=":", file=centred_file)
