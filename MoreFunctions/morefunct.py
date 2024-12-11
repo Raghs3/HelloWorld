@@ -1,4 +1,7 @@
-import tkinter
+try:
+    import tkinter
+except ImportError:  # python 2
+    import Tkinter as tkinter
 
 
 def parabola(x):
