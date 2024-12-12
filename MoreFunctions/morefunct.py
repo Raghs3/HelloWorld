@@ -28,7 +28,7 @@ mainWindow = tkinter.Tk()
 mainWindow.title("Parabola")
 mainWindow.geometry("640x480")
 
-canvas = tkinter.Canvas(mainWindow, width=320, height=480)
+canvas = tkinter.Canvas(mainWindow, width=640, height=480)
 canvas.grid(row=0, column=0)
 
 # canvas2 = tkinter.Canvas(mainWindow, width=320, height=480, background="blue")
