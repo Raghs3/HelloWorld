@@ -31,12 +31,12 @@ mainWindow.geometry("640x480")
 canvas = tkinter.Canvas(mainWindow, width=320, height=480)
 canvas.grid(row=0, column=0)
 
-canvas2 = tkinter.Canvas(mainWindow, width=320, height=480, background="blue")
-canvas2.grid(row=0, column=1)
+# canvas2 = tkinter.Canvas(mainWindow, width=320, height=480, background="blue")
+# canvas2.grid(row=0, column=1)
 
-print(repr(canvas), repr(canvas2))
+# print(repr(canvas), repr(canvas2))
 draw_axes(canvas)
-draw_axes(canvas2)
+# draw_axes(canvas2)
 
 # print(graph)  # outside scope
 
