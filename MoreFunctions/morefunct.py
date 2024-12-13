@@ -1,4 +1,4 @@
-import math
+# import math
 
 try:
     import tkinter
