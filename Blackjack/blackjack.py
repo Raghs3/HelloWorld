@@ -14,4 +14,4 @@ mainWindow.geometry("640x480")
 result_text = tkinter.StringVar()
 result = tkinter.Label(mainWindow, textvariable=result_text)
 
-card_frame = tkinter.Frame(mainWindow, relief="sunken", borderwidth=1)
+card_frame = tkinter.Frame(mainWindow, relief="sunken", borderwidth=1, background='green')
