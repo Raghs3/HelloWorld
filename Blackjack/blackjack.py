@@ -7,6 +7,31 @@ except ImportError:  # python 2
 
 mainWindow = tkinter.Tk()
 
+
+def load_images(card_images):
+    suits = ['heart', 'club', 'diamond', 'spade']
+    face_cards = ['jack', 'queen', 'king']
+
+    if tkinter.TkVersion >= 8.6:
+        extension='png'
+    else:
+        extension = 'ppm'
+
+    # for each suit, retrieve the image for the cards
+    for suit in suits:
+        # first the number cards 1 to 10
+        for card in range(1, 11):
+            name = 'cards/{}_{}.{}'.format(str(card), suit, extension)
+            image = tkinter.PhotoImage(file=name)
+            card_images.append((card, image,))
+
+        # next the face cards
+        for card in face_cards:
+            name = 'cards/{}_{}.{}'.format(str(card), suit, extension)
+            image = tkinter.PhotoImage(file=name)
+            card_images.append((10, image,))
+
+
 # Set up the screen and frames for the dealer and player
 mainWindow.title("Blackjack")
 mainWindow.geometry("640x480")
