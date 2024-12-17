@@ -35,7 +35,10 @@ def load_images(card_images):
 def deal_card(frame):
     # pop the next card off the top of the deck
     next_card = deck.pop()
-    # add the image to a label and
+    # add the image to a label and display the label
+    tkinter.Label(frame, image=next_card[1], relief='raised').pack(side='left')
+    # now return the card's face value
+    return next_card
 
 
 # Set up the screen and frames for the dealer and player
