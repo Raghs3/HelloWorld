@@ -32,6 +32,12 @@ def load_images(card_images):
             card_images.append((10, image,))
 
 
+def deal_card(frame):
+    # pop the next card off the top of the deck
+    next_card = deck.pop()
+    # add the image to a label and
+
+
 # Set up the screen and frames for the dealer and player
 mainWindow.title("Blackjack")
 mainWindow.geometry("640x480")
