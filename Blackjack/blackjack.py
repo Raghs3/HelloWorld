@@ -77,7 +77,7 @@ player_card_frame.grid(row=2, column=1, sticky='ew', rowspan=2)
 button_frame = tkinter.Frame(mainWindow)
 button_frame.grid(row=3, column=0, columnspan=3, sticky="w")
 
-dealer_button = tkinter.Button(button_frame, text="Dealer", command=deal_dealer)
+dealer_button = tkinter.Button(button_frame, text="Dealer", command=deal_dealer)  # cant use parenthesis or give parameter
 dealer_button.grid(row=0, column=0)
 
 player_button = tkinter.Button(button_frame, text="Player", command=deal_player)
