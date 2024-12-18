@@ -44,7 +44,17 @@ def deal_dealer():
 
 
 def deal_player():
-    deal_card(player_card_frame)
+    player_score = 0
+    card_value = deal_card(player_card_frame)[0]
+    if card_value == 1 and not player_ace:
+        card_value = 11
+    player_score += card_value
+    # if we would bust, check if there is an ace and subtract 10
+    if player_score > 21 and player_ace:
+        player_score -= 10
+    player_score_label.set(player_score)
+    if player_score > 21:
+        result_text.set("Dealer Wins!")
 
 
 mainWindow = tkinter.Tk()
