@@ -100,6 +100,32 @@ def deal_player():
     # print(locals())
 
 
+def new_game():
+    global dealer_card_frame
+    global player_card_frame
+    global dealer_hand
+    global player_hand
+    # embedded frame to hold the card images
+    dealer_card_frame.destroy()
+    dealer_card_frame = tkinter.Frame(card_frame, background='green')
+    dealer_card_frame.grid(row=0, column=1, sticky='ew', rowspan=2)
+    # embedded frame to hold the card images
+    player_card_frame.destroy()
+    player_card_frame = tkinter.Frame(card_frame, background="green")
+    player_card_frame.grid(row=2, column=1, sticky='ew', rowspan=2)
+
+    result_text.set("")
+
+    # Create the list to store the dealer's and player's hands
+    dealer_hand = []
+    player_hand = []  # since lists, not actually modified
+
+    deal_player()
+    dealer_hand.append(deal_card(dealer_card_frame))
+    dealer_score_label.set(score_hand(dealer_hand))
+    deal_player()
+
+
 mainWindow = tkinter.Tk()
 
 # Set up the screen and frames for the dealer and player
@@ -140,6 +166,9 @@ dealer_button.grid(row=0, column=0)
 player_button = tkinter.Button(button_frame, text="Player", command=deal_player)
 player_button.grid(row=0, column=1)
 
+new_game_button = tkinter.Button(button_frame, text="New Game", command=new_game)
+new_game_button.grid(row=0, column=2)
+
 # load cards
 cards=[]
 load_images(cards)
@@ -150,12 +179,13 @@ random.shuffle(deck)
 
 # Create the list to store the dealer's and player's hands
 dealer_hand = []
-player_hand = []
+player_hand = []  # since lists, not actually modified
 
-deal_player()
-dealer_hand.append(deal_card(dealer_card_frame))
-dealer_score_label.set(score_hand(dealer_hand))
-deal_player()
+new_game()
 
+# deal_player()
+# dealer_hand.append(deal_card(dealer_card_frame))
+# dealer_score_label.set(score_hand(dealer_hand))
+# deal_player()
 
 mainWindow.mainloop()
