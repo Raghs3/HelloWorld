@@ -33,6 +33,8 @@ def load_images(card_images):
 def deal_card(frame):
     # pop the next card off the top of the deck
     next_card = deck.pop(0)  # pop card from top of deck not bottom (i.e. last)
+    # and add it to back of the pack
+    deck.append(next_card)
     # add the image to a label and display the label
     tkinter.Label(frame, image=next_card[1], relief='raised').pack(side='left')
     # now return the card's face value
@@ -126,6 +128,10 @@ def new_game():
     deal_player()
 
 
+def shuffle():
+    random.shuffle(deck)
+
+
 mainWindow = tkinter.Tk()
 
 # Set up the screen and frames for the dealer and player
@@ -169,13 +175,17 @@ player_button.grid(row=0, column=1)
 new_game_button = tkinter.Button(button_frame, text="New Game", command=new_game)
 new_game_button.grid(row=0, column=2)
 
+shuffle_button = tkinter.Button(button_frame, text="Shuffle", command=shuffle)
+shuffle_button.grid(row=0, column=3)
+
 # load cards
 cards=[]
 load_images(cards)
 print(cards)
 # Create a new deck of cards and shuffle them
 deck = list(cards)
-random.shuffle(deck)
+# random.shuffle(deck)
+shuffle()
 
 # Create the list to store the dealer's and player's hands
 dealer_hand = []
