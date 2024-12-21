@@ -183,7 +183,7 @@ cards=[]
 load_images(cards)
 print(cards)
 # Create a new deck of cards and shuffle them
-deck = list(cards)
+deck = list(cards) + list(cards) + list(cards)  # three packs of cards in deck now
 # random.shuffle(deck)
 shuffle()
 
