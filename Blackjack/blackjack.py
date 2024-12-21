@@ -102,6 +102,13 @@ def deal_player():
     # print(locals())
 
 
+def initial_deal():
+    deal_player()
+    dealer_hand.append(deal_card(dealer_card_frame))
+    dealer_score_label.set(score_hand(dealer_hand))
+    deal_player()
+
+
 def new_game():
     global dealer_card_frame
     global player_card_frame
@@ -121,11 +128,7 @@ def new_game():
     # Create the list to store the dealer's and player's hands
     dealer_hand = []
     player_hand = []  # since lists, not actually modified
-
-    deal_player()
-    dealer_hand.append(deal_card(dealer_card_frame))
-    dealer_score_label.set(score_hand(dealer_hand))
-    deal_player()
+    initial_deal()
 
 
 def shuffle():
@@ -133,11 +136,7 @@ def shuffle():
 
 
 def play():
-    deal_player()
-    dealer_hand.append(deal_card(dealer_card_frame))
-    dealer_score_label.set(score_hand(dealer_hand))
-    deal_player()
-
+    initial_deal()
     mainWindow.mainloop()
 
 
