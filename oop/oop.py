@@ -1,5 +1,7 @@
 class Kettle(object):
 
+    power_source = "electricity"
+
     def __init__(self, make, price):  # init is constructor
         self.make = make  # self is the reference to instance of the class
         self.price = price
@@ -37,3 +39,20 @@ print(hamilton.on)
 Kettle.switch_on(kenwood)  # used switch_on as class method this time instead of on an instance
 print(kenwood.on)
 kenwood.switch_on()
+
+print("*" * 80)
+
+kenwood.power = 1.5
+print(kenwood.power)
+# print(hamilton.power)  # no attribute called power
+
+print("Switch to atomic power")
+Kettle.power_source = "atomic"
+print(Kettle.power_source)
+print("Switch kenwood to gas")
+kenwood.power_source = "gas"
+print(kenwood.power_source)
+print(hamilton.power_source)  # checks to see if exists in instance namespace, if not checks class namespace
+print(Kettle.__dict__)
+print(kenwood.__dict__)
+print(hamilton.__dict__)
