@@ -27,6 +27,14 @@ class Account:
     def show_balance(self):
         print("Balance is {}".format(self.balance))
 
+    def show_transaction(self):
+        for date, amount in self.transaction_list:
+            if amount > 0:
+                tran_type = "deposited"
+            else:
+                tran_type = "withdrawn"
+            print("{:6} {} on {} (local time was {})".format(amount, tran_type, date, date.astimezone()))
+
 
 if __name__ == '__main__':
     raghs3 = Account("Raghs3", 0)
