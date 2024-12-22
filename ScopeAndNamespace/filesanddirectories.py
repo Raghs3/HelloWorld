@@ -3,6 +3,7 @@ import os
 
 def list_directories(s):
 
+
     def dir_list(d):
         nonlocal tab_stop
         files = os.listdir(d)
