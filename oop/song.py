@@ -14,10 +14,10 @@ class Song:
 
 
 class Album:
-    """Class to represent an Album, using it's track list
+    """Class to represent an Album, using its track list
 
     Attributes:
-        album_name (str): The name of the album.
+        name (str): The name of the album.
         year (int): The year album was released.
         artist (Artist): The artist responsible for the album. If not specified,
         the artist will default to an artist with the name "Varius Artists".
@@ -46,22 +46,34 @@ class Album:
                 in the track list - inserting it between other songs if necessary.
                 Otherwise, the song will be added to the end of the list.
         """
-
         if position is None:
             self.tracks.append(song)
         else:
             self.tracks.insert(position, song)
 
 
-# # help(Song.__init__)
-# print(Song.__doc__)
-# print(Song.__init__.__doc__)
-# Song.__init__.__doc__ = """ Song init method
-#
-#         Args:
-#             title (str):  Initialises the 'title' attribute.
-#             artist (Artist): An Artist object representing the song's creator.
-#             duration (Optional [int]): Initial value for the 'duration' attribute.
-#                 Will default to zero if not specified.
-#         """
-# help(Song)
+class Artist:
+    """Basic class to store artist details.
+
+    Attributes:
+        name (str): The name of the artist.
+        albums (List[Album]): A list of the albums by this artist.
+            The list includes only those albums in this collection, it is
+            not an exhaustive list of the artist's published albums.
+
+    Methods:
+        add_album: Used to add a new album to the artist's albums list.
+    """
+
+    def __init__(self, name):
+        self.name = name
+        self.albums = []
+
+    def add_album(self, album):
+        """Add a new album to the list.
+
+        Args:
+            album (Album): Album object to add to the list.
+                If the album is already present, it will not be added again (although this is yet to be implemented).
+        """
+        self.albums.append(album)
