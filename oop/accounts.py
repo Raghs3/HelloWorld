@@ -40,7 +40,7 @@ if __name__ == '__main__':
     raghs3 = Account("Raghs3", 0)
     raghs3.show_balance()
 
-    raghs3.deposit(1000)
+    raghs3.deposit(1000)   # client is whoever uses the class
     # raghs3.show_balance()
     raghs3.withdraw(500)
     # raghs3.show_balance()
