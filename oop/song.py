@@ -104,10 +104,12 @@ def load_data():
                 artist_list.append(new_artist)
             elif new_artist.name != artist_field:
                 # We've just read details for a new artist
-                # store the current album in the current artists collection then create a new artist object
-                new_artist.add_album(new_album)
-                artist_list.append(new_artist)
-                new_artist = Artist(artist_field)
+                # retrieve the artist object if there is one,
+                # otherwise create a new artist object and add it to the artist list
+                new_artist = find_object(artist_field, artist_list)
+                if new_artist is None:
+                    new_artist = Artist(artist_field)
+                    artist_list.append(new_artist)
                 new_album = None
 
             if new_album is None:
