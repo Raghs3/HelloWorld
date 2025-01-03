@@ -8,9 +8,14 @@ class Song:
     """
 
     def __init__(self, title, artist, duration=0):
-        self.name = title
+        self.title = title
         self.artist = artist
         self.duration = duration
+
+    def get_title(self):  # getter
+        return self.title
+
+    name = property(get_title)  # read only property
 
 
 class Album:
@@ -139,7 +144,7 @@ def create_checkfile(artist_list):
         for new_artist in artist_list:
             for new_album in new_artist.albums:
                 for new_song in new_album.tracks:
-                    print(f"{new_artist.name}\t{new_album.name}\t{new_album.year}\t{new_song.name}",
+                    print(f"{new_artist.name}\t{new_album.name}\t{new_album.year}\t{new_song.title}",
                           file=checkfile)
 
 
