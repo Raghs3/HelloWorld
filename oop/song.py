@@ -156,3 +156,4 @@ if __name__ == '__main__':
     create_checkfile(artists)
     # there was no difference in the way we did this if our classes were in the stl
     # so not really oop
+    # this is just a program using objects
