@@ -79,6 +79,28 @@ class Artist:
         self.albums.append(album)
 
 
+    def add_song(self, name, year, title):
+        """Add a new song to the collection of albums
+
+        This method will add the song to an album in the collection.
+        A new album will be created in the collection if it doesn't already exist.
+
+        Args:
+            name (str): The name of the album
+            year (int): The year the album was produced
+            title (str): The title of the song
+        """
+        album_found = find_object(name, self.albums)
+        if album_found is None:
+            print(name + " not found")
+            album_found = Album(name, year, self)
+            self.add_album(album_found)
+        else:
+            print("Found album " + name)
+
+        album_found.add_song(title)
+
+
 def find_object(field, object_list):
     """Check 'object_list' to see if an object with a 'name' attribute equal to 'field' exists, return it if so."""
     for item in object_list:
