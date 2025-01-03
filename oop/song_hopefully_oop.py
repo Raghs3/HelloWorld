@@ -8,7 +8,7 @@ class Song:
     """
 
     def __init__(self, title, artist, duration=0):
-        self.title = title
+        self.name = title
         self.artist = artist
         self.duration = duration
 
@@ -41,15 +41,18 @@ class Album:
         """Adds a song to the track list
 
         Args:
-            song (Song): A song to add.
+            song (Song): The title of a song to add.
             position (Optional[int]): If specified, the song will be added to that position
                 in the track list - inserting it between other songs if necessary.
                 Otherwise, the song will be added to the end of the list.
         """
-        if position is None:
-            self.tracks.append(song)
-        else:
-            self.tracks.insert(position, song)
+        song_found = find_object(song, self.tracks)
+        if song_found is None:
+            song_found = Song(song, self.artist)
+            if position is None:
+                self.tracks.append(song_found)
+            else:
+                self.tracks.insert(position, song_found)
 
 
 class Artist:
@@ -77,7 +80,6 @@ class Artist:
                 If the album is already present, it will not be added again (although this is yet to be implemented).
         """
         self.albums.append(album)
-
 
     def add_song(self, name, year, title):
         """Add a new song to the collection of albums
@@ -131,13 +133,13 @@ def load_data():
 
 
 def create_checkfile(artist_list):
-    """Create a check file from the object data for comparision with the original file
+    """Create a check file from the object data for comparison with the original file
     """
     with open("checkfile.txt", "w") as checkfile:
         for new_artist in artist_list:
             for new_album in new_artist.albums:
                 for new_song in new_album.tracks:
-                    print(f"{new_artist.name}\t{new_album.name}\t{new_album.year}\t{new_song.title}",
+                    print(f"{new_artist.name}\t{new_album.name}\t{new_album.year}\t{new_song.name}",
                           file=checkfile)
 
 
