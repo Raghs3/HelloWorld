@@ -5,6 +5,10 @@ class Song:
         title (str): The title of the song
         artist (Artist): An artist object representing the song's creator.
         duration (int): The duration of the song in seconds. May be zero
+
+        Modify the program so that the class structure matches the simplified diagram: Artist objects can hold
+        references to Album objects, and Album objects can hold references to Song objects
+        but there must be no circular references.
     """
 
     def __init__(self, title, artist, duration=0):
