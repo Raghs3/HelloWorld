@@ -9,6 +9,7 @@ class Song:
         Modify the program so that the class structure matches the simplified diagram: Artist objects can hold
         references to Album objects, and Album objects can hold references to Song objects
         but there must be no circular references.
+        (I give up, I'll try tomorrow morning once more, let's hope I am able to figure something out.)
     """
 
     def __init__(self, title, artist, duration=0):
