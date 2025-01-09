@@ -18,5 +18,5 @@ class Player(object):
 
     lives = property(_get_lives, _set_lives)
 
-    def __str__(self):
+    def __str__(self):  # when printing object, python looks for this method
         return "Name: {0.name}, Lives: {0.lives}, Level: {0.level}, Score: {0.score}".format(self)
