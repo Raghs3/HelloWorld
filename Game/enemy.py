@@ -21,4 +21,9 @@ class Enemy(object):  # is same, py3 allows shortcut like this, i.e. automatical
 class Troll(Enemy):
 
     def __init__(self, name):
-        Enemy.__init__(self, name=name, lives=1, hit_points=23)
+        super().__init__(name=name, lives=1, hit_points=23)  # best way
+        # super(Troll, self).__init__(name=name, lives=1, hit_points=23)
+        # Enemy.__init__(self, name=name, lives=1, hit_points=23)
+
+    def grunt(self):
+        print(f"Me {self.name}. {self.name} stomp you")
