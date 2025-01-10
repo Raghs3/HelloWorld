@@ -29,6 +29,9 @@ ugly_troll.grunt()
 another_troll.grunt()
 brother.grunt()
 
+# monster = Enemy("Basic enemy")
+# monster.grunt()  # Enemy object has no attribute grunt
+
 
 
 # print(tim.name)
