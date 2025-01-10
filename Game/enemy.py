@@ -1,4 +1,5 @@
-class Enemy:  # class Enemy(object) is same, py3 allows shortcut like this, i.e. automatically inherits from object class
+# class Enemy:
+class Enemy(object):  # is same, py3 allows shortcut like this, i.e. automatically inherits from object class
 
     def __init__(self, name="Enemy", hit_points=0, lives=1):
         self.name = name
@@ -18,4 +19,6 @@ class Enemy:  # class Enemy(object) is same, py3 allows shortcut like this, i.e.
 
 
 class Troll(Enemy):
-    pass
+
+    def __init__(self, name):
+        Enemy.__init__(self, name=name, lives=1, hit_points=23)

@@ -16,13 +16,13 @@ from enemy import Enemy, Troll
 # random_monster.take_damage(9)
 # print(random_monster)
 
-ugly_troll = Troll()
+ugly_troll = Troll("Pug")
 print(f"Ugly troll - {ugly_troll}")
 
-another_troll = Troll("Ug", 18, 1)
+another_troll = Troll("Ug")
 print(f"Another troll - {another_troll}")
 
-brother = Troll("Urg", 23)
+brother = Troll("Urg")
 print(brother)
 
 
