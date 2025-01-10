@@ -44,8 +44,9 @@ another_troll.take_damage(30)
 print(another_troll)
 
 while vamp.alive:
-    vamp.take_damage(1)
-    print(vamp)
+    if not vamp.dodges():
+        vamp.take_damage(1)
+        print(vamp)
 
 # print(tim.name)
 # print(tim.lives)

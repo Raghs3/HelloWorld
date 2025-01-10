@@ -1,3 +1,6 @@
+import random
+
+
 # class Enemy:
 class Enemy(object):  # is same, py3 allows shortcut like this, i.e. automatically inherits from object class
 
@@ -39,3 +42,10 @@ class Vampire(Enemy):
 
     def __init__(self, name):
         super().__init__(name=name, lives=3, hit_points=12)
+
+    def dodges(self):
+        if random.randint(1, 3) == 3:
+            print(f"***** {self.name} dodges *****")
+            return True
+        else:
+            return False
