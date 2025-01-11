@@ -50,5 +50,5 @@ class Vampire(Enemy):
         else:
             return False
 
-    def take_damage(self, damage):
-        pass
+    # def take_damage(self, damage):
+    #     pass
