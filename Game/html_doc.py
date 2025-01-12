@@ -15,7 +15,7 @@ class Tag(object):
 class DocType(Tag):
 
     def __init__(self):
-        super().__init__('!DOCTYPE HTML', '')
+        super().__init__('!DOCTYPE html', '')
         self.end_tag = ''  # DOCTYPE doesn't have an end tag
 
 
@@ -65,4 +65,5 @@ if __name__ == '__main__':
     my_page.add_tag("h1", "Main Heading")
     my_page.add_tag("h2", "Sub Heading")
     my_page.add_tag("p", "This is a paragraph that will appear on the page")
-    my_page.display()
+    with open('test.html', 'w') as test_doc:
+        my_page.display(file=test_doc)
