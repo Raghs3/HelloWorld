@@ -21,4 +21,5 @@ for name, phone, email in cursor:  # after fetching no more values left in curso
     print("-" * 20)
 
 cursor.close()
+db.commit()  # this time data has been committed
 db.close()
