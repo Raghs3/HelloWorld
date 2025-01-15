@@ -7,6 +7,10 @@ update_cursor = db.cursor()
 update_cursor.execute(update_sql)
 print(f"{update_cursor.rowcount} rows updated")
 
+print()
+print(f"Are connections the same: {update_cursor.connection == db}")
+print()
+
 update_cursor.connection.commit()  # suggested to commit using cursor rather than db
 update_cursor.close()  # remember to close cursor
 
