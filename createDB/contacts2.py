@@ -1,6 +1,4 @@
 import sqlite3
-from itertools import count
-
 # sqlite wraps insertions and deletions in transaction so entire transaction can be roll backed
 db = sqlite3.connect("contacts.sqlite")
 
@@ -8,6 +6,9 @@ update_sql = "UPDATE contacts SET email = 'update@update.com'"  # WHERE contacts
 update_cursor = db.cursor()
 update_cursor.execute(update_sql)
 print(f"{update_cursor.rowcount} rows updated")
+
+update_cursor.connection.commit()  # suggested to commit using cursor rather than db
+update_cursor.close()  # remember to close cursor
 
 for name, phone, email in db.execute("SELECT * FROM contacts"):  # shortcut instead of cursor
     print(name)  # all data inserted is rolled back when db closed unless committed
