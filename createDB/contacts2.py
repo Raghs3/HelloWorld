@@ -2,12 +2,14 @@ import sqlite3
 # sqlite wraps insertions and deletions in transaction so entire transaction can be roll backed
 db = sqlite3.connect("contacts.sqlite")
 
-new_email = "anotherupdate@update.com"
+new_email = "newemail@update.com"
 phone = input("Please enter the phone number ")
 
 update_sql = f"UPDATE contacts SET email = '{new_email}' WHERE contacts.phone = {phone}"
+print(update_sql)
+
 update_cursor = db.cursor()
-update_cursor.execute(update_sql)
+update_cursor.executescript(update_sql)  # executescript doesn't set rowcount property
 print(f"{update_cursor.rowcount} rows updated")
 
 print()
