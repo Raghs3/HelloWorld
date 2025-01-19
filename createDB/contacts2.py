@@ -10,7 +10,7 @@ print(update_sql)
 
 update_cursor = db.cursor()
 update_cursor.executescript(update_sql)  # executescript doesn't set rowcount property
-print(f"{update_cursor.rowcount} rows updated")
+print(f"{update_cursor.rowcount} rows updated")  # print no of rows
 
 print()
 print(f"Are connections the same: {update_cursor.connection == db}")
