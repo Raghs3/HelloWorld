@@ -5,11 +5,12 @@ db = sqlite3.connect("contacts.sqlite")
 new_email = "newemail@update.com"
 phone = input("Please enter the phone number ")
 
-update_sql = f"UPDATE contacts SET email = '{new_email}' WHERE contacts.phone = {phone}"
+# update_sql = f"UPDATE contacts SET email = '{new_email}' WHERE contacts.phone = {phone}"
+update_sql = f"UPDATE contacts SET email = ? WHERE contacts.phone = ?"  # parameter substitution allows sanitization of input and prevents injection attacks (don't build up sql string by values coming outside of code)
 print(update_sql)
 
 update_cursor = db.cursor()
-update_cursor.executescript(update_sql)  # executescript doesn't set rowcount property
+update_cursor.execute(update_sql, (new_email, phone))  # executescript doesn't set rowcount property
 print(f"{update_cursor.rowcount} rows updated")  # print no of rows (-1 as stated above)
 
 print()
