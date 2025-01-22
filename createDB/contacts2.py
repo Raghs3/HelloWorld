@@ -7,7 +7,7 @@ phone = input("Please enter the phone number ")
 
 # update_sql = f"UPDATE contacts SET email = '{new_email}' WHERE contacts.phone = {phone}"
 update_sql = f"UPDATE contacts SET email = ? WHERE contacts.phone = ?"  # parameter substitution allows sanitization of input and prevents injection attacks (don't build up sql string by values coming outside of code)
-print(update_sql)
+print(update_sql)  # ^^ ? mark is placeholder. Library takes care of correctly quoting parameter substitutions
 
 update_cursor = db.cursor()
 update_cursor.execute(update_sql, (new_email, phone))  # executescript doesn't set rowcount property
