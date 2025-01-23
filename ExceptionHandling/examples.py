@@ -8,13 +8,13 @@ def factorial(n):
     if n <= 1:
         return 1
     else:
-        print(n / 0)
+        # print(n / 0)
         return n * factorial(n-1)
 
 
 try:
-    print(factorial(1000))  # error on 1000 and not on 900 (for testing purposes)
-except (RecursionError, ZeroDivisionError):  # can do multiple exceptions this way as well, but not best as doesn't give specific message
+    print(factorial(900))  # error on 1000 and not on 900 (for testing purposes)
+except (RecursionError, OverflowError):  # can do multiple exceptions this way as well, but not best as doesn't give specific message (as in case of ZeroDivisionError)
     print("This program cannot calculate factorials that large")
 # except ZeroDivisionError:
 #     print("What are you doing dividing by zero????")
