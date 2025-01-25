@@ -1,3 +1,4 @@
+# my soln
 a = int(input("Enter a number "))
 b = int(input("Enter second number "))
 
