@@ -9,6 +9,9 @@
 
 
 # tim soln
+import sys
+
+
 def getint(prompt):
     while True:
         try:
@@ -16,6 +19,8 @@ def getint(prompt):
             return number
         except ValueError:
             print("Invalid number entered, please try again")
+        except EOFError:
+            sys.exit(0)
 
 
 # x = int(input("Enter a number "))  # to check what is the exception thrown
