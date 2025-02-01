@@ -21,6 +21,8 @@ def getint(prompt):
             print("Invalid number entered, please try again")
         except EOFError:
             sys.exit(1)
+        finally:
+            print("The finally clause always executed")
 
 
 # x = int(input("Enter a number "))  # to check what is the exception thrown
