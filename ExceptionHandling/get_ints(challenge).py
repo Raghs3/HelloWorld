@@ -30,7 +30,9 @@ first_num = getint("Please enter first number ")
 second_num = getint("Please enter second number ")
 
 try:
-    print(f"{first_num} divided by {second_num} is {first_num/second_num}")
+    print(f"{first_num} divided by {second_num} is {first_num / second_num}")
 except ZeroDivisionError:
     print("You can't divide by zero")
     sys.exit(2)
+else:
+    print("Division performed successfully")
