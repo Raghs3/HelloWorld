@@ -17,9 +17,9 @@ def getint(prompt):
         try:
             number = int(input(prompt))
             return number
-        except ValueError:
+        except Exception  # ValueError:  # don't use `Exception`, instead try to catch specific error, to react to diff exception in a diff way
             print("Invalid number entered, please try again")
-        except EOFError:
+        except EOFError:  # order of handling exceptions is important
             sys.exit(1)
         finally:
             print("The finally clause always executed")
