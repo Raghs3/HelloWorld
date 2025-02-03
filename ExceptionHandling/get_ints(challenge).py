@@ -17,11 +17,11 @@ def getint(prompt):
         try:
             number = int(input(prompt))
             return number
-        except Exception  # ValueError:  # don't use `Exception`, instead try to catch specific error, to react to diff exception in a diff way
-            print("Invalid number entered, please try again")
         except EOFError:  # order of handling exceptions is important
-            sys.exit(1)
-        finally:
+            sys.exit(1)  # when this was below exception, went into infinite loop when pressing ctrl + D due to order of exceptions
+        except:  # <-- for all errors do this  # Exception: (doesn't handle all errors)  # ValueError:
+            print("Invalid number entered, please try again")
+        finally:  # don't use `Exception`, instead try to catch specific error, to react to diff exception in a diff way
             print("The finally clause always executed")
 
 
