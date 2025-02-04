@@ -55,7 +55,6 @@ class Flock(object):
             duck.fly()
 
 
-
 # def test_duck(duck):
 #     duck.walk()
 #     duck.swim()
