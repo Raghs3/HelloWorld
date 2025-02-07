@@ -48,7 +48,7 @@ class Flock(object):
         self.flock = []
 
     def add_duck(self, duck: Duck) -> None:  # adding annotation so the intellij checker, checks and warns
-        self.flock.append(duck)
+        self.flock.append(duck)  # no need to annotate self, auto annotates
 
     def migrate(self):
         for duck in self.flock:
