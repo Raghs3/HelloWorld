@@ -11,7 +11,7 @@ duck7 = ducks.Duck()
 percy = ducks.Penguin()
 
 flock.add_duck(donald)
-flock.add_duck(daisy)
+flock.add_duck(daisy)  # we can handle errors in many ways, first way is to do nothing XD
 flock.add_duck(duck3)
 flock.add_duck(duck4)
 flock.add_duck(percy)  # error as penguin object has no attribute fly
