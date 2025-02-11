@@ -18,5 +18,6 @@ flock.add_duck(percy)  # error as penguin object has no attribute fly
 flock.add_duck(duck5)  # other 3 remained grounded, unable to fly, only 4 ducks fly
 flock.add_duck(duck6)  # error is shown in different places, gets passed to call stack until something handles it or reaches runtime
 flock.add_duck(duck7)  # stack trace and output can be mixed up and hence output can't always be trusted
-
+# often better to leave errors for something further up the call chain to deal with the error
 flock.migrate()  # <module> means main program
+# fly didn't handle error propagated to flock (migrate) in main and that didn't handle it so it propagated to python runtime
