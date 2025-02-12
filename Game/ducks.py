@@ -52,8 +52,10 @@ class Flock(object):
 
     def migrate(self):
         for duck in self.flock:
-            duck.fly()
-
+            try:
+                duck.fly()
+            except AttributeError:
+                pass
 
 # def test_duck(duck):
 #     duck.walk()
