@@ -55,7 +55,8 @@ class Flock(object):
             try:
                 duck.fly()
             except AttributeError:
-                pass
+                print("One duck down")
+                raise  # raising errors makes it so only 4 birds fly as loop is terminated
 
 # def test_duck(duck):
 #     duck.walk()
