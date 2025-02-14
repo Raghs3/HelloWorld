@@ -51,13 +51,16 @@ class Flock(object):
         self.flock.append(duck)  # no need to annotate self, auto annotates
 
     def migrate(self):
+        problem = None
         for duck in self.flock:
             try:
                 duck.fly()
-            except AttributeError:
+            except AttributeError as e:  # reference to exception is stored in a variable
                 print("One duck down")
-                raise  # raising errors makes it so only 4 birds fly as loop is terminated
-
+                # raise  # raising errors makes it so only 4 birds fly as loop is terminated
+                problem = e
+        if problem:
+            raise problem  # all birds fly, and problem is raised as well
 # def test_duck(duck):
 #     duck.walk()
 #     duck.swim()
