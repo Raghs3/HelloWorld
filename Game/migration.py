@@ -8,7 +8,7 @@ duck4 = ducks.Duck()
 duck5 = ducks.Duck()
 duck6 = ducks.Duck()
 duck7 = ducks.Duck()
-percy = ducks.Penguin()
+percy = ducks.Mallard()  # since Mallard and not Duck, add_duck treats as not duck and doesn't fly
 
 flock.add_duck(donald)
 flock.add_duck(daisy)  # we can handle errors in many ways, first way is to do nothing XD

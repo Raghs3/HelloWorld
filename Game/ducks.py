@@ -42,6 +42,10 @@ class Penguin(object):
         print("Are you 'avin' a larf? I'm a penguin!")
 
 
+class Mallard(Duck):  # example of why if type is type is wrong
+    pass
+
+
 class Flock(object):
 
     def __init__(self):
