@@ -52,7 +52,7 @@ class Flock(object):
         self.flock = []
 
     def add_duck(self, duck: Duck) -> None:  # adding annotation so the intellij checker, checks and warns
-        if type(duck) is Duck:  # never do this, just wrong, and not pythonic
+        if isinstance(duck, Duck):  # if necessary use this method instead  # if type(duck) is Duck:  # never do this, just wrong, and not pythonic
             self.flock.append(duck)  # no need to annotate self, auto annotates
 
     def migrate(self):
