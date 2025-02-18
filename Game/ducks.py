@@ -57,6 +57,7 @@ class Flock(object):
         fly_method = getattr(duck, 'fly', None)  # checks if attribute exists or not, checks dict of object to see if it contains specified attr
         if callable(fly_method):  # callable to check if fly method is callable  # getattr like dict get method
             self.flock.append(duck)  # data attr aren't callable, functions and methods are
+# this is the pythonic way, testing if it flies rather than if it is a duck
 
     def migrate(self):
         problem = None
