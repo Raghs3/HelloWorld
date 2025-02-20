@@ -33,7 +33,7 @@ class Duck(object):
 class Penguin(object):
 
     def __init__(self):
-        self.fly = self.aviate()
+        self.fly = self.aviate  # remember not to put the parenthesis, calling function and all concept I forgot
 
     def walk(self):
         print("Waddle, waddle, I waddle too")
