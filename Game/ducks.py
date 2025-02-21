@@ -32,8 +32,8 @@ class Duck(object):
 
 class Penguin(object):
 
-    def __init__(self):
-        self.fly = self.aviate  # remember not to put the parenthesis, calling function and all concept I forgot
+    def __init__(self):  # created a new data attribute called fly and assign to reference to aviate method
+        self.fly = self.aviate  # remember not to put the parenthesis, calling function and all concept I forgot, removing parenthesis --> reference
 
     def walk(self):
         print("Waddle, waddle, I waddle too")
