@@ -72,6 +72,7 @@ class Flock(object):
         for duck in self.flock:
             try:
                 duck.fly()
+                raise AttributeError("Testing exception handler in migrate")
             except AttributeError as e:  # reference to exception is stored in a variable
                 print("One duck down")
                 # raise  # raising errors makes it so only 4 birds fly as loop is terminated
