@@ -20,3 +20,6 @@ class Account(object):
         else:
             print("The amount must be greater than zero and no more than your account balance")
             return 0.0
+
+    def show_balance(self):
+        print(f"Balance on account {self.name} is {self._balance}")
