@@ -23,3 +23,13 @@ class Account(object):
 
     def show_balance(self):
         print(f"Balance on account {self.name} is {self._balance}")
+
+
+if __name__ == "__main__":
+    john = Account("John")
+    john.deposit(10.10)
+    john.deposit(0.10)
+    john.deposit(0.10)
+    john.withdraw(0.30)
+    john.withdraw(0)
+    john.show_balance()
