@@ -30,6 +30,6 @@ if __name__ == "__main__":
     john.deposit(10.10)
     john.deposit(0.10)
     john.deposit(0.10)
-    john.withdraw(0.30)
-    john.withdraw(0)
-    john.show_balance()
+    john.withdraw(0.30)  # when working with float we encounter rounding errors and so exact value doesn't show (instead of 10 we get 9.999998)
+    john.withdraw(0)  # recurring or some types of issue, lose accuracy with every 0.1
+    john.show_balance()  # we can use decimal class (not teaching here) (code in rollback2 though won't understand)
