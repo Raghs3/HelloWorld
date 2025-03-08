@@ -1,5 +1,7 @@
 import sqlite3
 
+db = sqlite3.connect('accounts.sqlite')
+
 
 class Account(object):
 
