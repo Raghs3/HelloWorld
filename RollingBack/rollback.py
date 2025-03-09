@@ -1,6 +1,7 @@
 import sqlite3
 
 db = sqlite3.connect('accounts.sqlite')
+db.execute("CREATE TABLE IF NOT EXISTS accounts")
 
 
 class Account(object):
