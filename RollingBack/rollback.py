@@ -13,13 +13,13 @@ class Account(object):
         row = cursor.fetchone()
 
         if row is not None:  # can be `if row:` as well
-            self.name, self.balance = row
+            self.name, self.balance = row  # unpacking tuple if row is found
             print(f"Retrieved record for {self.name}", end='')
-        else:
+        else:  # if row not found
             self.name = name
             self._balance = opening_balance
             cursor.execute("INSERT INTO accounts VALUES(?, ?)", (name, opening_balance))
-            cursor.connection.commit()
+            cursor.connection.commit()  # as inserting something, have to commit the change
             print(f"Account created for {self.name}", end='')
         self.show_balance()
 
