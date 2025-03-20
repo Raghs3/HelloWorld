@@ -50,3 +50,9 @@ if __name__ == "__main__":
     john.withdraw(30)  # when working with float we encounter rounding errors and so exact value doesn't show (instead of 10 we get 9.999998)
     john.withdraw(0)  # recurring or some types of issue, lose accuracy with every 0.1
     john.show_balance()  # we can use decimal class (not teaching here) (code in rollback2 though won't understand)
+
+    terry = Account("Terry")
+    graham = Account("Graham", 9000)
+    eric = Account("Eric", 7000)
+
+    db.close()
