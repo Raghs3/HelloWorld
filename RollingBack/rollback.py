@@ -20,7 +20,7 @@ class Account(object):
             self._balance = opening_balance
             cursor.execute("INSERT INTO accounts VALUES(?, ?)", (name, opening_balance))
             cursor.connection.commit()  # as inserting something, have to commit the change
-            print(f"Account created for {self.name}", end='')
+            print(f"Account created for {self.name}. ", end='')
         self.show_balance()
 
     def deposit(self, amount: int) -> float:
