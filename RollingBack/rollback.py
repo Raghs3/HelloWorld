@@ -13,7 +13,7 @@ class Account(object):
         row = cursor.fetchone()
 
         if row is not None:  # can be `if row:` as well
-            self.name, self.balance = row  # unpacking tuple if row is found
+            self.name, self._balance = row  # unpacking tuple if row is found
             print(f"Retrieved record for {self.name}", end='')
         else:  # if row not found
             self.name = name
