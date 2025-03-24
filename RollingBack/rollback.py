@@ -2,7 +2,7 @@ import sqlite3
 
 db = sqlite3.connect('accounts.sqlite')
 db.execute("CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")  # sqlite commands
-db.execute("CREATE TABLE IF NOT EXISTS transactions (time TIMESTAMP NOT NULL,"
+db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
            " account TEXT NOT NULL, amount INTEGER NOT NULL, PRIMARY KEY (time, account))")
 # primary keys have to be unique so error when tried creating second Terry in accounts table
 
