@@ -15,7 +15,7 @@ class Account(object):
 
         if row is not None:  # can be `if row:` as well
             self.name, self._balance = row  # unpacking tuple if row is found
-            print(f"Retrieved record for {self.name}", end='')
+            print(f"Retrieved record for {self.name}. ", end='')
         else:  # if row not found
             self.name = name
             self._balance = opening_balance
@@ -52,8 +52,10 @@ if __name__ == "__main__":
     john.withdraw(0)  # recurring or some types of issue, lose accuracy with every 0.1
     john.show_balance()  # we can use decimal class (not teaching here) (code in rollback2 though won't understand)
 
-    terry = Account("Terry")
+    terry = Account("TerryJ")
     graham = Account("Graham", 9000)
     eric = Account("Eric", 7000)
+    michael = Account("Michael")
+    terryG = Account("TerryG")
 
     db.close()
