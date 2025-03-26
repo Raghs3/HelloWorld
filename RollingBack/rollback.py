@@ -10,6 +10,10 @@ db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
 
 class Account(object):
 
+    @staticmethod
+    def _current_time(self):
+        return datetime.datetime.now(datetime.timezone.utc)
+
     def __init__(self, name: str, opening_balance: int = 0):
         cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
         row = cursor.fetchone()
