@@ -32,7 +32,7 @@ class Account(object):
     def deposit(self, amount: int) -> float:
         if amount > 0.0:
             new_balance = self._balance + amount
-            deposit_time = datetime.datetime.now(datetime.timezone.utc)
+            deposit_time = Account._current_time()
             db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)", (new_balance, self.name))
             db.execute("INSERT INTO history VALUES (?, ?, ?)", (deposit_time, self.name, amount))
             db.commit()
