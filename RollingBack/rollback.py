@@ -11,7 +11,7 @@ db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
 class Account(object):
 
     @staticmethod
-    def _current_time(self):
+    def _current_time():  # dunno if self is req in brackets or not
         return datetime.datetime.now(datetime.timezone.utc)
 
     def __init__(self, name: str, opening_balance: int = 0):
@@ -44,7 +44,7 @@ class Account(object):
         if 0 < amount <= self._balance:
             new_balance = self._balance - amount
             withdrawal_time = Account._current_time()
-            db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)"), (new_balance, self.name)
+            db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)", (new_balance, self.name))
             db.execute("INSERT INTO history VALUES (?, ?, ?)", (withdrawal_time, self.name, -amount))
             db.commit()
             self._balance = new_balance
