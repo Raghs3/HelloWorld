@@ -8,4 +8,4 @@ for row in db.execute("SELECT * FROM history"):  # doing this we realised our ti
     local_time = row[0]
     print(f"{local_time}\t{type(local_time)}")  # time is in string datatype
 
-db.close()
+db.close()  # remember to close the connection!
