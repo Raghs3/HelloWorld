@@ -6,5 +6,5 @@ for t in enumerate("abcdefgh"):  # enumerate create tuple
     print(index, character)
 
 index, character = (0, 'a')  # this is happening on line one
-print(index)
-print(character)
+print(index)  # prints index
+print(character)  # prints character
