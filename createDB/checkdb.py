@@ -9,3 +9,4 @@ for row in conn.execute("SELECT * FROM contacts WHERE contacts.name LIKE ?", (na
     print(row)
 
 conn.close()
+# closing database
