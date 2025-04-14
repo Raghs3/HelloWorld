@@ -12,9 +12,9 @@ class Account(object):
 
     @staticmethod
     def _current_time():  # dunno if self is req in brackets or not
-        # return datetime.datetime.now(datetime.timezone.utc)
-        local_time = datetime.datetime.now(datetime.timezone.utc)
-        return local_time.astimezone()
+        return datetime.datetime.now(datetime.timezone.utc)
+        # local_time = datetime.datetime.now(datetime.timezone.utc)
+        # return local_time.astimezone()
 
     def __init__(self, name: str, opening_balance: int = 0):
         cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
