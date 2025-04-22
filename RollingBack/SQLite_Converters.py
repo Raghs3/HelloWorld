@@ -16,7 +16,7 @@ def adapt_datetime_iso(val):
 sqlite3.register_adapter(datetime, adapt_datetime_iso)
 sqlite3.register_converter("datetime", convert_datetime)
 
-db = sqlite3.connect("accounts.sqlite", detect_types=sqlite3.PARSE_DECLTYPES)
+db = sqlite3.connect("accounts_iso.sqlite", detect_types=sqlite3.PARSE_DECLTYPES)
 db.execute(
     "CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")
 db.execute(
