@@ -2,7 +2,7 @@ import sqlite3
 import datetime
 # import pytz
 from SQLite_Converters import adapt_datetime_iso  # , convert_datetime # if writing to the database
-
+# have to use converters wherever database is accessed to makesure str converted to datetime.datetime object.
 sqlite3.register_adapter(datetime, adapt_datetime_iso)
 # sqlite3.register_converter("datetime", convert_datetime)  # only needed if writing.
 
