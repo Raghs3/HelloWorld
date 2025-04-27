@@ -5,7 +5,7 @@ import pickle
 
 def convert_datetime(val):
     """Convert ISO 8601 datetime to datetime.datetime object."""
-    return datetime.fromisoformat(val.decode())
+    return datetime.fromisoformat(val.decode())  # iso format req to use astimezone() method
 
 
 def adapt_datetime_iso(val):
