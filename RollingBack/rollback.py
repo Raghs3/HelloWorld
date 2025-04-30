@@ -1,12 +1,14 @@
 import datetime
 import sqlite3
 
-db = sqlite3.connect('accounts.sqlite')
+db = sqlite3.connect('accounts.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)
 db.execute("CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")  # sqlite commands
 db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
            " account TEXT NOT NULL, amount INTEGER NOT NULL, PRIMARY KEY (time, account))")
 # primary keys have to be unique so error when tried creating second Terry in accounts table
-
+db.execute("CREATE VIEW IF NOT EXISTS localhistory AS"
+           " SELECT strftime('%d-%m-%Y %H:%M:%f', history.time, 'localtime') AS localtime,"
+           " history.account, history.amount FROM history ORDER BY history.time")
 
 class Account(object):
 
