@@ -8,7 +8,7 @@ db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
 # primary keys have to be unique so error when tried creating second Terry in accounts table
 db.execute("CREATE VIEW IF NOT EXISTS localhistory AS"
            " SELECT strftime('%d-%m-%Y %H:%M:%f', history.time, 'localtime') AS localtime,"
-           " history.account, history.amount FROM history ORDER BY history.time")
+           " history.account, history.amount FROM history ORDER BY history.time")  # created a view, of local time
 
 class Account(object):
 
