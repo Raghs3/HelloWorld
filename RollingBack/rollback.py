@@ -1,7 +1,7 @@
 import datetime
 import sqlite3
 
-db = sqlite3.connect('accounts.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)
+db = sqlite3.connect('accounts.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)  # challenge, save local timezone to the db too
 db.execute("CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")  # sqlite commands
 db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
            " account TEXT NOT NULL, amount INTEGER NOT NULL, PRIMARY KEY (time, account))")
