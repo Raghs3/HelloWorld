@@ -1,10 +1,15 @@
 import datetime
 import sqlite3
+import pytz
+import pickle
+
+from checkdb_Converters import utc_time
 
 db = sqlite3.connect('accounts.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)  # challenge, save local timezone to the db too
 db.execute("CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")  # sqlite commands
 db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
-           " account TEXT NOT NULL, amount INTEGER NOT NULL, PRIMARY KEY (time, account))")
+           " account TEXT NOT NULL, amount INTEGER NOT NULL,"
+           " zone INTEGER NOT NULL, PRIMARY KEY (time, account))")
 # primary keys have to be unique so error when tried creating second Terry in accounts table
 db.execute("CREATE VIEW IF NOT EXISTS localhistory AS"
            " SELECT strftime('%d-%m-%Y %H:%M:%f', history.time, 'localtime') AS localtime,"
@@ -14,9 +19,11 @@ class Account(object):
 
     @staticmethod
     def _current_time():  # dunno if self is req in brackets or not
-        return datetime.datetime.now(datetime.timezone.utc)
+        # return datetime.datetime.now(datetime.timezone.utc)
         # local_time = datetime.datetime.now(datetime.timezone.utc)
         # return local_time.astimezone()
+
+        utc_time = pytz.utc.localize(datetime.datetime.utcnow())
 
     def __init__(self, name: str, opening_balance: int = 0):
         cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
