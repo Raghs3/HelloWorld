@@ -3,8 +3,6 @@ import sqlite3
 import pytz
 import pickle
 
-from checkdb_Converters import utc_time
-
 db = sqlite3.connect('accounts.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)  # challenge, save local timezone to the db too
 db.execute("CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")  # sqlite commands
 db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
@@ -24,6 +22,9 @@ class Account(object):
         # return local_time.astimezone()
 
         utc_time = pytz.utc.localize(datetime.datetime.utcnow())
+        local_time = utc_time.astimezone()
+        zone = local_time.tzinfo
+        return utc_time, zone
 
     def __init__(self, name: str, opening_balance: int = 0):
         cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
