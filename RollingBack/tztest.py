@@ -3,7 +3,7 @@ import sqlite3
 import pytz
 import pickle
 
-db = sqlite3.connect('accounts.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)  # challenge, save local timezone to the db too
+db = sqlite3.connect('accounts_tz.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)  # challenge, save local timezone to the db too
 db.execute("CREATE TABLE IF NOT EXISTS accounts (name TEXT PRIMARY KEY NOT NULL, balance INTEGER NOT NULL)")  # sqlite commands
 db.execute("CREATE TABLE IF NOT EXISTS history (time TIMESTAMP NOT NULL,"
            " account TEXT NOT NULL, amount INTEGER NOT NULL,"
@@ -43,9 +43,11 @@ class Account(object):
 
     def _save_update(self, amount):
         new_balance = self._balance + amount
-        deposit_time = Account._current_time()
+        deposit_time, zone = Account._current_time()  # <-- unpack the returned tuple
+        pickled_zone = pickle.dumps(zone)
+
         db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)", (new_balance, self.name))
-        db.execute("INSERT INTO history VALUES (?, ?, ?)", (deposit_time, self.name, amount))
+        db.execute("INSERT INTO history VALUES (?, ?, ?, ?)", (deposit_time, self.name, amount, pickled_zone))
         db.commit()
         self._balance = new_balance
 
