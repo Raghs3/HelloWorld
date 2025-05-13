@@ -12,6 +12,7 @@ for row in db.execute("SELECT * FROM history"):
     utc_time = row[0]
     pickled_zone = row[3]
     zone = pickle.loads(pickled_zone)
+    # zone = pytz.timezone("ACDT")  # gives error for ACDT timezone, works for some, so don't use this
     local_time = pytz.utc.localize(utc_time).astimezone(zone)
     print(f"{utc_time}\t{local_time}\t{local_time.tzinfo}")
 
