@@ -42,7 +42,7 @@ class Account(object):
         except sqlite3.Error:
             db.rollback()
         finally:
-            db.commit()  # error occurs before this
+            db.commit()  # error occurs before this so now putting in try block to avoid crashes
 
         self._balance = new_balance
 
