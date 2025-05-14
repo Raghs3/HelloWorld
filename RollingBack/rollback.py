@@ -41,10 +41,10 @@ class Account(object):
             db.execute("INSERT INTO history VALUES (?, ?, ?)", (deposit_time, self.name, amount))
         except sqlite3.Error:
             db.rollback()
+        else:
+            self._balance = new_balance  # had to put in else, otherwise output didn't match database
         finally:
             db.commit()  # error occurs before this so now putting in try block to avoid crashes
-
-        self._balance = new_balance
 
     def deposit(self, amount: int) -> float:
         if amount > 0.0:
