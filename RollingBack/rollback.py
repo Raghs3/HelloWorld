@@ -14,9 +14,8 @@ class Account(object):
 
     @staticmethod
     def _current_time():  # dunno if self is req in brackets or not
-        return datetime.datetime.now(datetime.timezone.utc)
-        # local_time = datetime.datetime.now(datetime.timezone.utc)
-        # return local_time.astimezone()
+        # return datetime.datetime.now(datetime.timezone.utc)
+        return 1  # integrity error as primary key must be unique
 
     def __init__(self, name: str, opening_balance: int = 0):
         cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
@@ -36,9 +35,15 @@ class Account(object):
     def _save_update(self, amount):
         new_balance = self._balance + amount
         deposit_time = Account._current_time()
-        db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)", (new_balance, self.name))
-        db.execute("INSERT INTO history VALUES (?, ?, ?)", (deposit_time, self.name, amount))
-        db.commit()
+
+        try:
+            db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)", (new_balance, self.name))
+            db.execute("INSERT INTO history VALUES (?, ?, ?)", (deposit_time, self.name, amount))
+        except sqlite3.Error:
+            db.rollback()
+        finally:
+            db.commit()  # error occurs before this
+
         self._balance = new_balance
 
     def deposit(self, amount: int) -> float:
