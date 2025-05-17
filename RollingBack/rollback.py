@@ -43,7 +43,7 @@ class Account(object):
             db.rollback()
         else:
             self._balance = new_balance  # had to put in else, otherwise output didn't match database
-        finally:
+        finally:  # commit should be in else, as otherwise there is nothing to commit
             db.commit()  # error occurs before this so now putting in try block to avoid crashes
 
     def deposit(self, amount: int) -> float:
