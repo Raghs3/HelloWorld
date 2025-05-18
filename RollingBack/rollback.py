@@ -36,7 +36,7 @@ class Account(object):
         new_balance = self._balance + amount
         deposit_time = Account._current_time()
 
-        try:
+        try:  # limit code in try
             db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)", (new_balance, self.name))
             db.execute("INSERT INTO history VALUES (?, ?, ?)", (deposit_time, self.name, amount))
         except sqlite3.Error:
