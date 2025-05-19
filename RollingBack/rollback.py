@@ -42,9 +42,10 @@ class Account(object):
         except sqlite3.Error:
             db.rollback()
         else:
+            db.commit()
             self._balance = new_balance  # had to put in else, otherwise output didn't match database
-        finally:  # commit should be in else, as otherwise there is nothing to commit
-            db.commit()  # error occurs before this so now putting in try block to avoid crashes
+        # finally:  # commit should be in else, as otherwise there is nothing to commit
+        #     db.commit()  # error occurs before this so now putting in try block to avoid crashes
 
     def deposit(self, amount: int) -> float:
         if amount > 0.0:
