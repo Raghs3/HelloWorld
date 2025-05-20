@@ -40,8 +40,9 @@ class Account(object):
             db.execute("UPDATE accounts SET balance = ? WHERE (name = ?)", (new_balance, self.name))
             db.execute("INSERT INTO history VALUES (?, ?, ?)", (deposit_time, self.name, amount))
         except sqlite3.Error:
-            db.rollback()
-        else:
+            db.rollback()  # if not rollback, incorrect values
+            # pass
+        else:  # doesn't get a chance to run so never commits anything and pending transactions, hence last tran of 30 withdraw only commited
             db.commit()
             self._balance = new_balance  # had to put in else, otherwise output didn't match database
         # finally:  # commit should be in else, as otherwise there is nothing to commit
