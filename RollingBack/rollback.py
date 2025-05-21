@@ -14,8 +14,8 @@ class Account(object):
 
     @staticmethod
     def _current_time():  # dunno if self is req in brackets or not
-        # return datetime.datetime.now(datetime.timezone.utc)
-        return 1  # integrity error as primary key must be unique
+        return datetime.datetime.now(datetime.timezone.utc)
+        # return 1  # integrity error as primary key must be unique
 
     def __init__(self, name: str, opening_balance: int = 0):
         cursor = db.execute("SELECT name, balance FROM accounts WHERE (name = ?)", (name,))
