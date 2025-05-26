@@ -19,3 +19,25 @@ mainWindow.rowconfigure(0, weight=1)
 mainWindow.rowconfigure(1, weight=5)
 mainWindow.rowconfigure(2, weight=5)
 mainWindow.rowconfigure(3, weight=1)
+
+# ===== labels =====
+tkinter.Label(mainWindow, text="Artists").grid(row=0, column=0)
+tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
+tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
+
+# ===== Artists Listbox =====
+artistList = tkinter.Listbox(mainWindow)
+artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30,0))
+artistList.config(border=2, relief='sunken')
+
+# ===== Albums Listbox =====
+albumLV = tkinter.Variable(mainWindow)
+albumLV.set(("Choose an artist",))
+albumList = tkinter.Listbox(mainWindow, listvariable=albumLV)
+albumList.grid(row=1, column=1, sticky='nsew', padx=(30,0))
+albumList.config(border=2, relief='sunken')
+
+# ===== Songs Listbox =====
+artistList = tkinter.Listbox(mainWindow)
+artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30,0))
+artistList.config(border=2, relief='sunken')
