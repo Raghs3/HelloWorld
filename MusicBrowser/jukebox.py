@@ -32,7 +32,7 @@ artistList.config(border=2, relief='sunken')
 
 artistScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=artistList.yview)
 artistScroll.grid(row=1, column=0, sticky='nse', rowspan=2)
-artistList['yscrollcommand'] = artistScroll.set
+artistList['yscrollcommand'] = artistScroll.set  # does the communication between listbox and scroll bar
 
 # ===== Albums Listbox =====
 albumLV = tkinter.Variable(mainWindow)
@@ -40,6 +40,10 @@ albumLV.set(("Choose an artist",))
 albumList = tkinter.Listbox(mainWindow, listvariable=albumLV)
 albumList.grid(row=1, column=1, sticky='nsew', padx=(30,0))
 albumList.config(border=2, relief='sunken')
+# gonna see how to create scrollable list box class to avoid duplication
+albumScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=albumList.yview)
+albumScroll.grid(row=1, column=1, sticky='nse')
+albumList['yscrollcommand'] = albumScroll.set  # does the communication between listbox and scroll bar
 
 # ===== Songs Listbox =====
 songLV = tkinter.Variable(mainWindow)
@@ -49,6 +53,9 @@ songList.grid(row=1, column=2, sticky='nsew', padx=(30,0))
 songList.config(border=2, relief='sunken')
 
 # ===== Main loop =====
+testList = range(0, 100)
+albumLV.set(tuple(testList))
+# albumLV.set((1, 2, 3, 4, 5))  # updates the listbox in gui with the values in the tuple
 mainWindow.mainloop()
 print("closing database connection")
 conn.close()
