@@ -38,6 +38,8 @@ albumList.grid(row=1, column=1, sticky='nsew', padx=(30,0))
 albumList.config(border=2, relief='sunken')
 
 # ===== Songs Listbox =====
-artistList = tkinter.Listbox(mainWindow)
-artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30,0))
-artistList.config(border=2, relief='sunken')
+songLV = tkinter.Variable(mainWindow)
+songLV.set(("Choose an album",))
+songList = tkinter.Listbox(mainWindow, listvariable=songLV)
+songList.grid(row=1, column=2, sticky='nsew', padx=(30,0))
+songList.config(border=2, relief='sunken')
