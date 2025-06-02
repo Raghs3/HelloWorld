@@ -2,6 +2,9 @@
 
 
 def average(*args):
+    print(type(args))
+    print(f"args is {args}")
+    print("*args is: ", *args)
     mean = 0
     for arg in args:
         mean += arg
