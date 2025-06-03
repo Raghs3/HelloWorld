@@ -5,7 +5,7 @@ def average(*args):
     print(type(args))
     print(f"args is {args}")
     print("*args is: ", *args)  # represents unpacked tuple, *args tells python to expect unpacked tuple
-    mean = 0
+    mean = 0  # `*` unpacks tuple but when in param, it means args will be unpacked tuple, and will be packed in to args param
     for arg in args:
         mean += arg
     return mean / len(args)  # in python2 it does integer division
