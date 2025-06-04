@@ -1,7 +1,7 @@
 # print("Hello", "planet", "earth")  # values are wrapped in tuple, *args is unpacked values in tuple
 
 
-def average(*args):
+def average(*args):  # gives error if it is only args without star
     print(type(args))
     print(f"args is {args}")
     print("*args is: ", *args)  # represents unpacked tuple, *args tells python to expect unpacked tuple
