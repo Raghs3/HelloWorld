@@ -11,3 +11,7 @@ def average(*args):  # gives error if it is only args without star
     return mean / len(args)  # in python2 it does integer division
 
 print(average(1, 2, 3, 4))
+
+
+def build_tuple(*args):  # challenge
+    return args
