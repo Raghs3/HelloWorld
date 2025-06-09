@@ -27,9 +27,10 @@
 # print(number_tuple)
 
 
-def print_backwards(*args, file=None):
+def print_backwards(*args, **kwargs):  # now the user enters the keyword and value pairs, and it gets unpacked like a dict
+    print(kwargs)
     for word in args[::-1]:
-        print(word[::-1], end=' ', file=file)
+        print(word[::-1], end=' ', **kwargs)  # don't have to specify file=file, can use as many kwargs as the user wants
 
 with open("backwards.txt", 'w') as backwards:
     print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', file=backwards)
