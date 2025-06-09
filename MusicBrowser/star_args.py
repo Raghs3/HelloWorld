@@ -33,3 +33,5 @@ def print_backwards(*args, file=None):
 
 with open("backwards.txt", 'w') as backwards:
     print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', file=backwards)
+
+# ** unpacks a dictionary, dict used as keyword args are specified as keywords and value, like a dict
