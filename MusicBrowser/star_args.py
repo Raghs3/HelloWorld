@@ -29,11 +29,19 @@
 
 # def print_backwards(*args, **kwargs):  # now the user enters the keyword and value pairs, and it gets unpacked like a dict
 # def print_backwards(*args, end=' ', **kwargs):  # method 1 to fix multiple value, add end param to function def
-def print_backwards(*args, **kwargs):  # method 2, remove it from kwargs dict
-    print(kwargs)
-    kwargs.pop('end', None)
+# def print_backwards(*args, **kwargs):  # method 2, remove it from kwargs dict
+#     print(kwargs)
+#     kwargs.pop('end', None)
+#     for word in args[::-1]:
+#         print(word[::-1], end=' ', **kwargs)  # don't have to specify file=file, can use as many kwargs as the user wants
+
+
+def print_backwards(*args, **kwargs):
+    end_character = kwargs.pop('end', '\n')
+    sep_character = kwargs.pop('sep', ' ')
     for word in args[::-1]:
-        print(word[::-1], end=' ', **kwargs)  # don't have to specify file=file, can use as many kwargs as the user wants
+        print(word[::-1], end=sep_character, **kwargs)  # don't have to specify file=file, can use as many kwargs as the user wants
+    print(end=end_character)
 
 with open("backwards.txt", 'w') as backwards:
     # print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', file=backwards, end='\n')  # multiple values for keyword arg end in print, so error
@@ -42,5 +50,6 @@ with open("backwards.txt", 'w') as backwards:
 
 # ** unpacks a dictionary, dict used as keyword args are specified as keywords and value, like a dict
 print()
-print('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n', sep='|')
-print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n', sep='|')  # end is used as a a sep so sep doesn't really work, parsing through individual words in function not a string
+print('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='', sep='\n**\n')
+print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='', sep='\n**\n')  # end is used as a a sep so sep doesn't really work, parsing through individual words in function not a string
+print("=" * 10)
