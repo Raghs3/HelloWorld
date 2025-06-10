@@ -43,4 +43,4 @@ with open("backwards.txt", 'w') as backwards:
 # ** unpacks a dictionary, dict used as keyword args are specified as keywords and value, like a dict
 print()
 print('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n', sep='|')
-print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n', sep='|')
+print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n', sep='|')  # end is used as a a sep so sep doesn't really work, parsing through individual words in function not a string
