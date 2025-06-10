@@ -64,6 +64,13 @@ def print_backwards(*args, **kwargs):
     print(args[0][::-1], end=end_character, **kwargs)  # changed range and print the first word separately
     # print(end=end_character)  # which means we don't need this line
 
+
+# if aim was just to print backwards and not learn kwargs
+def backwards_print(*args, **kwargs):
+    sep_character = kwargs.pop('sep', ' ')
+    print(sep_character.join(word[::-1] for word in args[::-1]), **kwargs)
+
+
 with open("backwards.txt", 'w') as backwards:
     # print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', file=backwards, end='\n')  # multiple values for keyword arg end in print, so error
     print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n')
