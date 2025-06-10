@@ -38,5 +38,9 @@ def print_backwards(*args, **kwargs):  # method 2, remove it from kwargs dict
 with open("backwards.txt", 'w') as backwards:
     # print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', file=backwards, end='\n')  # multiple values for keyword arg end in print, so error
     print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n')
+    print("Another string")  # appears on same line as above
 
 # ** unpacks a dictionary, dict used as keyword args are specified as keywords and value, like a dict
+print()
+print('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n', sep='|')
+print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n', sep='|')
