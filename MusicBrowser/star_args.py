@@ -27,13 +27,16 @@
 # print(number_tuple)
 
 
-def print_backwards(*args, **kwargs):  # now the user enters the keyword and value pairs, and it gets unpacked like a dict
+# def print_backwards(*args, **kwargs):  # now the user enters the keyword and value pairs, and it gets unpacked like a dict
+# def print_backwards(*args, end=' ', **kwargs):  # method 1 to fix multiple value, add end param to function def
+def print_backwards(*args, **kwargs):  # method 2, remove it from kwargs dict
     print(kwargs)
+    kwargs.pop('end', None)
     for word in args[::-1]:
         print(word[::-1], end=' ', **kwargs)  # don't have to specify file=file, can use as many kwargs as the user wants
 
 with open("backwards.txt", 'w') as backwards:
     # print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', file=backwards, end='\n')  # multiple values for keyword arg end in print, so error
-    print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', file=backwards, end='\n')
+    print_backwards('hello', 'planet', 'earth', 'take', 'me', 'to', 'your', 'leader', end='\n')
 
 # ** unpacks a dictionary, dict used as keyword args are specified as keywords and value, like a dict
