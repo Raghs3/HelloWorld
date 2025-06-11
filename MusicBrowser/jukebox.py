@@ -17,8 +17,8 @@ class Scrollbox(tkinter.Listbox):
 
     def grid(self, row, column, sticky='nsw', rowspan=1, columnspan=1, **kwargs):
         super().grid(row=row, column=column, sticky=sticky, rowspan=rowspan, columnspan=columnspan, **kwargs)
-        self.scrollbar.grid(row=row, column=column, sticky='nsw', rowspan=rowspan)
-        self['vscrollcommand'] = self.scrollbar.set
+        self.scrollbar.grid(row=row, column=column, sticky='nse', rowspan=rowspan)
+        self['yscrollcommand'] = self.scrollbar.set
 
 
 mainWindow = tkinter.Tk()
@@ -44,10 +44,10 @@ tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
 artistList = Scrollbox(mainWindow)
 artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30,0))
 artistList.config(border=2, relief='sunken')
-
-artistScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=artistList.yview)
-artistScroll.grid(row=1, column=0, sticky='nse', rowspan=2)
-artistList['yscrollcommand'] = artistScroll.set  # does the communication between listbox and scroll bar
+# don't need to create scrollbar, as it displays its own scrollbar that we did in class
+# artistScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=artistList.yview)
+# artistScroll.grid(row=1, column=0, sticky='nse', rowspan=2)
+# artistList['yscrollcommand'] = artistScroll.set  # does the communication between listbox and scroll bar
 
 # ===== Albums Listbox =====
 albumLV = tkinter.Variable(mainWindow)
@@ -55,10 +55,10 @@ albumLV.set(("Choose an artist",))
 albumList = Scrollbox(mainWindow, listvariable=albumLV)
 albumList.grid(row=1, column=1, sticky='nsew', padx=(30,0))
 albumList.config(border=2, relief='sunken')
-# gonna see how to create scrollable list box class to avoid duplication
-albumScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=albumList.yview)
-albumScroll.grid(row=1, column=1, sticky='nse')
-albumList['yscrollcommand'] = albumScroll.set  # does the communication between listbox and scroll bar
+# going to see how to create scrollable list box class to avoid duplication  # see class, hence don't need bottom lines
+# albumScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=albumList.yview)
+# albumScroll.grid(row=1, column=1, sticky='nse')
+# albumList['yscrollcommand'] = albumScroll.set  # does the communication between listbox and scroll bar
 
 # ===== Songs Listbox =====
 songLV = tkinter.Variable(mainWindow)
