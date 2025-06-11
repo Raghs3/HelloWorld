@@ -15,6 +15,11 @@ class Scrollbox(tkinter.Listbox):
 
         self.scrollbar = tkinter.Scrollbar(window, orient=tkinter.VERTICAL, command=self.yview)
 
+    def grid(self, row, column, sticky='nsw', rowspan=1, columnspan=1, **kwargs):
+        super().grid(row=row, column=column, sticky=sticky, rowspan=rowspan, columnspan=columnspan, **kwargs)
+        self.scrollbar.grid(row=row, column=column, sticky='nsw', rowspan=rowspan)
+        self['vscrollcommand'] = self.scrollbar.set
+
 
 mainWindow = tkinter.Tk()
 mainWindow.title("Music DB Browser")
