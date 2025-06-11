@@ -36,7 +36,7 @@ tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
 tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
 
 # ===== Artists Listbox =====
-artistList = tkinter.Listbox(mainWindow)
+artistList = Scrollbox(mainWindow)
 artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30,0))
 artistList.config(border=2, relief='sunken')
 
@@ -47,7 +47,7 @@ artistList['yscrollcommand'] = artistScroll.set  # does the communication betwee
 # ===== Albums Listbox =====
 albumLV = tkinter.Variable(mainWindow)
 albumLV.set(("Choose an artist",))
-albumList = tkinter.Listbox(mainWindow, listvariable=albumLV)
+albumList = Scrollbox(mainWindow, listvariable=albumLV)
 albumList.grid(row=1, column=1, sticky='nsew', padx=(30,0))
 albumList.config(border=2, relief='sunken')
 # gonna see how to create scrollable list box class to avoid duplication
@@ -58,7 +58,7 @@ albumList['yscrollcommand'] = albumScroll.set  # does the communication between 
 # ===== Songs Listbox =====
 songLV = tkinter.Variable(mainWindow)
 songLV.set(("Choose an album",))
-songList = tkinter.Listbox(mainWindow, listvariable=songLV)
+songList = Scrollbox(mainWindow, listvariable=songLV)
 songList.grid(row=1, column=2, sticky='nsew', padx=(30,0))
 songList.config(border=2, relief='sunken')
 
