@@ -6,6 +6,16 @@ except ImportError:  # python 2
 
 conn = sqlite3.connect('music.db')
 
+
+class Scrollbox(tkinter.Listbox):
+
+    def __init__(self, window, **kwargs):
+        # tkinter.Listbox.__init__(self, window, **kwargs)  # for python2
+        super().__init__(window, **kwargs)
+
+        self.scrollbar = tkinter.Scrollbar(window, orient=tkinter.VERTICAL, command=self.yview)
+
+
 mainWindow = tkinter.Tk()
 mainWindow.title("Music DB Browser")
 mainWindow.geometry('1024x768')
