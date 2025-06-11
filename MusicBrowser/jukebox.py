@@ -36,7 +36,7 @@ tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
 tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
 
 # ===== Artists Listbox =====
-artistList = Scrollbox(mainWindow, background="blue")
+artistList = Scrollbox(mainWindow)
 artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30,0))
 artistList.config(border=2, relief='sunken')
 
