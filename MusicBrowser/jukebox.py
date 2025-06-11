@@ -16,6 +16,7 @@ class Scrollbox(tkinter.Listbox):
         self.scrollbar = tkinter.Scrollbar(window, orient=tkinter.VERTICAL, command=self.yview)
 
     def grid(self, row, column, sticky='nsw', rowspan=1, columnspan=1, **kwargs):
+        # tkinter.Listbox.grid(self, row, column, sticky='nsw', rowspan=1, columnspan=1, **kwargs)  # for python2
         super().grid(row=row, column=column, sticky=sticky, rowspan=rowspan, columnspan=columnspan, **kwargs)
         self.scrollbar.grid(row=row, column=column, sticky='nse', rowspan=rowspan)
         self['yscrollcommand'] = self.scrollbar.set
