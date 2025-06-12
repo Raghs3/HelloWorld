@@ -50,6 +50,10 @@ artistList.config(border=2, relief='sunken')
 # artistScroll.grid(row=1, column=0, sticky='nse', rowspan=2)
 # artistList['yscrollcommand'] = artistScroll.set  # does the communication between listbox and scroll bar
 
+for artist in conn.execute("SELECT artists.name FROM artists ORDER BY artists.name"):
+    artistList.insert(tkinter.END, artist[0])
+
+
 # ===== Albums Listbox =====
 albumLV = tkinter.Variable(mainWindow)
 albumLV.set(("Choose an artist",))
