@@ -4,7 +4,7 @@ try:
 except ImportError:  # python 2
     import Tkinter as tkinter
 
-conn = sqlite3.connect('music.db')
+conn = sqlite3.connect('music.sqlite')
 
 
 class Scrollbox(tkinter.Listbox):
@@ -29,7 +29,7 @@ def get_albums(event):
     artist_name = lb.get(index),
 
     # get the artist ID from the database row
-    artist_id = conn.execute("SELECT artist._id FROM artists WHERE artists.name=?", artist_name).fetchone()
+    artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
     alist = []
     for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist=? ORDER BY albums.name", artist_id):
         alist.append(row[0])
