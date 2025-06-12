@@ -22,6 +22,19 @@ class Scrollbox(tkinter.Listbox):
         self['yscrollcommand'] = self.scrollbar.set
 
 
+def get_albums(event):
+    lb = event.widget
+    index = lb.curselection()[0]
+    artist_name = lb.get(index),
+
+    # get the artist ID from the database row
+    artist_id = conn.execute("SELECT artist._id FROM artists WHERE artists.name=?", artist_name).fetchone()
+    alist = []
+    for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist=? ORDER BY albums.name", artist_id):
+        alist.append(row[0])
+    albumLV.set(tuple(alist))
+
+
 mainWindow = tkinter.Tk()
 mainWindow.title("Music DB Browser")
 mainWindow.geometry('1024x768')
