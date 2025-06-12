@@ -53,6 +53,7 @@ artistList.config(border=2, relief='sunken')
 for artist in conn.execute("SELECT artists.name FROM artists ORDER BY artists.name"):
     artistList.insert(tkinter.END, artist[0])
 
+artistList.bind('<<ListboxSelect>>', get_albums)
 
 # ===== Albums Listbox =====
 albumLV = tkinter.Variable(mainWindow)
