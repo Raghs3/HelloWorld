@@ -44,7 +44,7 @@ def get_songs(event):  # don't want to do this as duplication
     # get the artist ID grom the database row
     album_id = conn.execute("SELECT albums._id FROM albums WHERE albums.name=?", album_name).fetchone()
     alist = []
-    for x in conn.execute("SELCT songs.title FROM songs WHERE songs.albums=? ORDER BY songs.track", album_id):
+    for x in conn.execute("SELECT songs.title FROM songs WHERE songs.album=? ORDER BY songs.track", album_id):
         alist.append(x[0])
     songLV.set(tuple(alist))
 
@@ -92,6 +92,8 @@ albumList.config(border=2, relief='sunken')
 # albumScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=albumList.yview)
 # albumScroll.grid(row=1, column=1, sticky='nse')
 # albumList['yscrollcommand'] = albumScroll.set  # does the communication between listbox and scroll bar
+
+albumList.bind('<<ListboxSelect>>', get_songs)
 
 # ===== Songs Listbox =====
 songLV = tkinter.Variable(mainWindow)
