@@ -36,6 +36,19 @@ def get_albums(event):
     albumLV.set(tuple(alist))
 
 
+def get_songs(event):  # don't want to do this as duplication
+    lb = event.widget
+    index = int(lb.curselection()[0])
+    album_name = lb.get(index),
+
+    # get the artist ID grom the database row
+    album_id = conn.execute("SELECT albums._id FROM albums WHERE albums.name=?", album_name).fetchone()
+    alist = []
+    for x in conn.execute("SELCT songs.title FROM songs WHERE songs.albums=? ORDER BY songs.track", album_id):
+        alist.append(x[0])
+    songLV.set(tuple(alist))
+
+
 mainWindow = tkinter.Tk()
 mainWindow.title("Music DB Browser")
 mainWindow.geometry('1024x768')
