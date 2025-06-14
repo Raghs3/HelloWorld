@@ -23,6 +23,23 @@ class Scrollbox(tkinter.Listbox):
         self['yscrollcommand'] = self.scrollbar.set
 
 
+class DataListBox(Scrollbox):
+
+    def __init__(self, window, connection, table, field, sort_order=(), **kwargs):
+        # Scrollbox.__init__(self, window, **kwargs)  # python2
+        super().__init__(window, **kwargs)
+
+        self.cursor = connection.cursor()
+        self.table = table
+        self.field = field
+
+        self.sql_select = "SELECT " + self.field + "._id" + " FROM " + self.table
+        if sort_order:
+            self.sql_select = " ORDER BY " + ",".join(sort_order)
+        else:
+            self.sql_select = " ORDER BY " + self.field
+
+
 def get_albums(event):
     lb = event.widget
     index = lb.curselection()[0]
