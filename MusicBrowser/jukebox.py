@@ -35,9 +35,9 @@ class DataListBox(Scrollbox):
 
         self.sql_select = "SELECT " + self.field + "._id" + " FROM " + self.table
         if sort_order:
-            self.sql_select = " ORDER BY " + ",".join(sort_order)
+            self.sql_sort = " ORDER BY " + ",".join(sort_order)
         else:
-            self.sql_select = " ORDER BY " + self.field
+            self.sql_sort = " ORDER BY " + self.field
 
 
 def get_albums(event):
