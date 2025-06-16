@@ -39,6 +39,17 @@ class DataListBox(Scrollbox):
         else:
             self.sql_sort = " ORDER BY " + self.field
 
+    def clear(self):
+        self.delete(0, tkinter.END)
+
+    def requery(self):
+        print(self.sql_select + self.sql_sort)     #TODO delete this line
+
+        # clear the listbox contents before re-loading
+        self.clear()
+        for value in self.cursor:
+            self.insert(tkinter.END, value[0])
+
 
 def get_albums(event):
     lb = event.widget
