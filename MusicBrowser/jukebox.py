@@ -33,7 +33,7 @@ class DataListBox(Scrollbox):
         self.table = table
         self.field = field
 
-        self.sql_select = "SELECT " + self.field + "._id" + " FROM " + self.table
+        self.sql_select = "SELECT " + self.field + ", _id" + " FROM " + self.table
         if sort_order:
             self.sql_sort = " ORDER BY " + ",".join(sort_order)
         else:
@@ -98,7 +98,8 @@ tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
 tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
 
 # ===== Artists Listbox =====
-artistList = Scrollbox(mainWindow)
+# artistList = Scrollbox(mainWindow)
+artistList = DataListBox(mainWindow, conn, "artists", "name")
 artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30,0))
 artistList.config(border=2, relief='sunken')
 # don't need to create scrollbar, as it displays its own scrollbar that we did in class
@@ -106,9 +107,11 @@ artistList.config(border=2, relief='sunken')
 # artistScroll.grid(row=1, column=0, sticky='nse', rowspan=2)
 # artistList['yscrollcommand'] = artistScroll.set  # does the communication between listbox and scroll bar
 
-for artist in conn.execute("SELECT artists.name FROM artists ORDER BY artists.name"):
-    artistList.insert(tkinter.END, artist[0])
+# for artist in conn.execute("SELECT artists.name FROM artists ORDER BY artists.name"):
+#     artistList.insert(tkinter.END, artist[0])
+#
 
+artistList.requery()
 artistList.bind('<<ListboxSelect>>', get_albums)
 
 # ===== Albums Listbox =====
