@@ -117,7 +117,9 @@ artistList.bind('<<ListboxSelect>>', get_albums)
 # ===== Albums Listbox =====
 albumLV = tkinter.Variable(mainWindow)
 albumLV.set(("Choose an artist",))
-albumList = Scrollbox(mainWindow, listvariable=albumLV)
+# albumList = Scrollbox(mainWindow, listvariable=albumLV)
+albumList = DataListBox(mainWindow, conn, "albums", "name", sort_order=("name",))
+albumList.requery()
 albumList.grid(row=1, column=1, sticky='nsew', padx=(30,0))
 albumList.config(border=2, relief='sunken')
 # going to see how to create scrollable list box class to avoid duplication  # see class, hence don't need bottom lines
@@ -130,7 +132,9 @@ albumList.bind('<<ListboxSelect>>', get_songs)
 # ===== Songs Listbox =====
 songLV = tkinter.Variable(mainWindow)
 songLV.set(("Choose an album",))
-songList = Scrollbox(mainWindow, listvariable=songLV)
+# songList = Scrollbox(mainWindow, listvariable=songLV)
+songList = DataListBox(mainWindow, conn, "songs", "title", ("track", "title"))
+songList.requery()
 songList.grid(row=1, column=2, sticky='nsew', padx=(30,0))
 songList.config(border=2, relief='sunken')
 
