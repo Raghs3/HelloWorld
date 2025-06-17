@@ -44,6 +44,7 @@ class DataListBox(Scrollbox):
 
     def requery(self):
         print(self.sql_select + self.sql_sort)     #TODO delete this line
+        self.cursor.execute(self.sql_select + self.sql_sort)
 
         # clear the listbox contents before re-loading
         self.clear()
