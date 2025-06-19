@@ -63,12 +63,15 @@ def get_albums(event):
     artist_name = lb.get(index),
 
     # get the artist ID from the database row
-    artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
-    alist = []
-    for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist=? ORDER BY albums.name", artist_id):
-        alist.append(row[0])
-    albumLV.set(tuple(alist))
-    songLV.set(("Choose an album",))
+    artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()[0]
+    albumList.requery(artist_id)
+
+    # artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
+    # alist = []
+    # for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist=? ORDER BY albums.name", artist_id):
+    #     alist.append(row[0])
+    # albumLV.set(tuple(alist))
+    # songLV.set(("Choose an album",))
 
 def get_songs(event):  # don't want to do this as duplication
     lb = event.widget
@@ -124,7 +127,7 @@ albumLV = tkinter.Variable(mainWindow)
 albumLV.set(("Choose an artist",))
 # albumList = Scrollbox(mainWindow, listvariable=albumLV)
 albumList = DataListBox(mainWindow, conn, "albums", "name", sort_order=("name",))
-albumList.requery()
+albumList.requery(12)
 albumList.grid(row=1, column=1, sticky='nsew', padx=(30,0))
 albumList.config(border=2, relief='sunken')
 # going to see how to create scrollable list box class to avoid duplication  # see class, hence don't need bottom lines
