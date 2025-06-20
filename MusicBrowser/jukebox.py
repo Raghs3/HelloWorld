@@ -56,22 +56,22 @@ class DataListBox(Scrollbox):
         for value in self.cursor:
             self.insert(tkinter.END, value[0])
 
+    def on_select(self, event):
+        print(self is event.widget)  # TODO delete this line
+        # lb = event.widget
+        index = self.curselection()[0]
+        artist_name = self.get(index),
 
-def get_albums(event):
-    lb = event.widget
-    index = lb.curselection()[0]
-    artist_name = lb.get(index),
+        # get the artist ID from the database row
+        artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()[0]
+        albumList.requery(artist_id)
 
-    # get the artist ID from the database row
-    artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()[0]
-    albumList.requery(artist_id)
-
-    # artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
-    # alist = []
-    # for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist=? ORDER BY albums.name", artist_id):
-    #     alist.append(row[0])
-    # albumLV.set(tuple(alist))
-    # songLV.set(("Choose an album",))
+        # artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
+        # alist = []
+        # for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist=? ORDER BY albums.name", artist_id):
+        #     alist.append(row[0])
+        # albumLV.set(tuple(alist))
+        # songLV.set(("Choose an album",))
 
 def get_songs(event):  # don't want to do this as duplication
     lb = event.widget
