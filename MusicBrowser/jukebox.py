@@ -60,10 +60,10 @@ class DataListBox(Scrollbox):
         print(self is event.widget)  # TODO delete this line
         # lb = event.widget
         index = self.curselection()[0]
-        artist_name = self.get(index),
+        value = self.get(index),
 
         # get the artist ID from the database row
-        artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()[0]
+        artist_id = conn.execute(self.sql_select + " WHERE " + self.field + "=?", value).fetchone()[1]
         albumList.requery(artist_id)
 
         # artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
