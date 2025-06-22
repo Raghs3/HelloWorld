@@ -63,8 +63,8 @@ class DataListBox(Scrollbox):
         value = self.get(index),
 
         # get the artist ID from the database row
-        artist_id = conn.execute(self.sql_select + " WHERE " + self.field + "=?", value).fetchone()[1]
-        albumList.requery(artist_id)
+        link_id = self.cursor.execute(self.sql_select + " WHERE " + self.field + "=?", value).fetchone()[1]  # may cause errors on other programs using different connection names (not conn)
+        albumList.requery(link_id)
 
         # artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name=?", artist_name).fetchone()
         # alist = []
