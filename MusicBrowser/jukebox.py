@@ -53,7 +53,7 @@ class DataListBox(Scrollbox):
 
     def requery(self, link_value=None):
         if link_value and self.link_field:
-            sql = self.sql_select + " WHERE " + self.linked_box + "=?" + self.sql_sort
+            sql = self.sql_select + " WHERE " + self.link_field + "=?" + self.sql_sort
             print(sql)    # TODO delete this line
             self.cursor.execute(sql, (link_value,))
         else:
@@ -69,7 +69,7 @@ class DataListBox(Scrollbox):
                 self.linked_box.clear()
 
     def on_select(self, event):
-        if self.linked_box:
+        if self.linked_box and self.curselection():
             print(self is event.widget)    # TODO delete this line
             # lb = event.widget
             index = self.curselection()[0]
