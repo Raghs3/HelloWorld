@@ -52,8 +52,8 @@ class DataListBox(Scrollbox):
         widget.link_field = link_field
 
     def requery(self, link_value=None):
-        if link_value:
-            sql = self.sql_select + " WHERE " + "artist" + "=?" + self.sql_sort
+        if link_value and self.link_field:
+            sql = self.sql_select + " WHERE " + self.linked_box + "=?" + self.sql_sort
             print(sql)    # TODO delete this line
             self.cursor.execute(sql, (link_value,))
         else:
@@ -64,6 +64,9 @@ class DataListBox(Scrollbox):
         self.clear()
         for value in self.cursor:
             self.insert(tkinter.END, value[0])
+
+            if self.linked_box:
+                self.linked_box.clear()
 
     def on_select(self, event):
         if self.linked_box:
@@ -145,7 +148,8 @@ albumList.config(border=2, relief='sunken')
 # albumScroll.grid(row=1, column=1, sticky='nse')
 # albumList['yscrollcommand'] = albumScroll.set  # does the communication between listbox and scroll bar
 
-albumList.bind('<<ListboxSelect>>', get_songs)
+# albumList.bind('<<ListboxSelect>>', get_songs)
+artistList.link(albumList, "artist")
 
 # ===== Songs Listbox =====
 songLV = tkinter.Variable(mainWindow)
@@ -155,6 +159,8 @@ songList = DataListBox(mainWindow, conn, "songs", "title", ("track", "title"))
 songList.requery()
 songList.grid(row=1, column=2, sticky='nsew', padx=(30,0))
 songList.config(border=2, relief='sunken')
+
+albumList.link(songList, "album")
 
 # ===== Main loop =====
 testList = range(0, 100)
