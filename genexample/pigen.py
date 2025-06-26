@@ -5,4 +5,11 @@ def oddnumbers():
         n += 2
 
 
-odds = oddnumbers()
+def pi_series():
+    odds = oddnumbers()
+    approximation = 0
+    while True:
+        approximation += (4 / next(odds))
+        yield approximation
+        approximation -= (4 / next(odds))
+        yield approximation  # generator picks up value after last yield
