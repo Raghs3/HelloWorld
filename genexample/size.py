@@ -30,3 +30,7 @@ print(f"big_list is {sys.getsizeof(big_list)} bytes")
 # both are iterators but big_range is a special case called generator which works like a generator
 print(big_range)  # generator object
 print(big_list)  # list
+
+print("looping again ... or not")
+for i in big_range:
+    print("i is {}".format(i))  # nothing actually happens as all values already exhausted, that's why line 13, 14 bad idea
