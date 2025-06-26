@@ -18,7 +18,7 @@ def find_songs(albums):
 
 
 album_list = find_albums("music", "black*")  # fnmatch filter can find files containing black by putting `*`
-song_list = find_songs(album_list)  # case-sensitive in mac
+song_list = find_songs(album_list)  # case-sensitive in mac, filter sensitivity based on file system
 
 for s in song_list:
     print(s)
