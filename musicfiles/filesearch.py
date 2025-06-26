@@ -6,7 +6,8 @@ def find_albums(root, artist_name):
     caps_name = artist_name.upper()  # for case preserving like mac
     for path, directories, files in os.walk(root):
         # for artist in fnmatch.filter(directories, artist_name):
-        for artist in fnmatch.filter((d.upper() for d in directories), caps_name):
+        # for artist in fnmatch.filter((d.upper() for d in directories), caps_name):  # generator expressions
+        for artist in (d for d in directories if fnmatch.fnmatch(d.upper(), caps_name)):  # works on linux
             subdir = os.path.join(path, artist)
             for album_path, albums, _ in os.walk(subdir):
                 for album in albums:
