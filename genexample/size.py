@@ -1,6 +1,6 @@
 import sys
 
-big_range = range(1000)
+big_range = range(10000)  # after changing value of range, size of range still same while size of list 10 times
 
 print(f"big_range is {sys.getsizeof(big_range)} bytes")
 
