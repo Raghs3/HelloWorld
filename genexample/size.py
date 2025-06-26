@@ -10,11 +10,11 @@ def my_range(n: int):
         start += 1  # yielding puts function in suspended state, doesn't actually end it
 
 # _ = input("line 12")
-# big_range = range(5)  # after changing value of range, size of range still same while size of list 10 times
-big_range = my_range(5)  # function isn't actually executed here
+big_range = range(5)  # after changing value of range, size of range still same while size of list 10 times
+# big_range = my_range(5)  # function isn't actually executed here
 # _ = input("line 15")
 # don't need line 14, directly use my_range(5) in for loop, doing line 14 in some cases might even be a bad idea
-print(next(big_range))  # call to my_range fn # now the for loop only goes from 1 to 4 instead of 0 to 4
+# print(next(big_range))  # call to my_range fn # now the for loop only goes from 1 to 4 instead of 0 to 4
 print(f"big_range is {sys.getsizeof(big_range)} bytes")
 
 # create a list containing all the values in big_range
@@ -32,5 +32,9 @@ print(big_range)  # generator object
 print(big_list)  # list
 
 print("looping again ... or not")
+# for i in my_range(5):  # big_range:
+#     print("i is {}".format(i))  # nothing actually happens when using big_range as all values already exhausted, that's why line 13, 14 bad idea
+    # but calling function direct works
+
 for i in big_range:
-    print("i is {}".format(i))  # nothing actually happens as all values already exhausted, that's why line 13, 14 bad idea
+    print("i is {}".format(i))  # but if we use range (python inbuilt), it works, as range class behaves like an iterable, reset each time it is called
