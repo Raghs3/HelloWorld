@@ -2,7 +2,7 @@ import os
 
 root = "music"
 
-for path, directories, files in os.walk(root, topdown=True):
+for path, directories, files in os.walk(root, topdown=True):  # os.walk is a generator, doesn't read all files at once, just yields detail for single dir at a time
     if files:
         print(path)
         first_split = os.path.split(path)
