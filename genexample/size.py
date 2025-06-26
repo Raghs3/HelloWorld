@@ -26,6 +26,6 @@ for val in big_range:
 
 print(f"big_list is {sys.getsizeof(big_list)} bytes")
 
-# both are iterators but big_range is a special case called generator
+# both are iterators but big_range is a special case called generator which works like a generator
 print(big_range)  # generator object
 print(big_list)  # list
