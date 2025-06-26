@@ -1,6 +1,15 @@
 import sys
 
-big_range = range(10000)  # after changing value of range, size of range still same while size of list 10 times
+
+def my_range(n: int):
+    start = 0
+    while start < n:
+        yield start
+        start += 1
+
+
+# big_range = range(10000)  # after changing value of range, size of range still same while size of list 10 times
+big_range = my_range(10000)
 
 print(f"big_range is {sys.getsizeof(big_range)} bytes")
 
@@ -10,3 +19,5 @@ for val in big_range:
     big_list.append(val)
 
 print(f"big_list is {sys.getsizeof(big_list)} bytes")
+
+# both are iterators but big_range is a special case called generator
