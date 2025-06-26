@@ -13,3 +13,9 @@ def pi_series():
         yield approximation
         approximation -= (4 / next(odds))
         yield approximation  # generator picks up value after last yield
+
+
+approx_pi = pi_series()
+
+for x in range(11000):
+    print(next(approx_pi))
