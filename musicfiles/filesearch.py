@@ -17,8 +17,8 @@ def find_songs(albums):
             yield song
 
 
-album_list = find_albums("music", "Aerosmith")
-song_list = find_songs(album_list)
+album_list = find_albums("music", "black*")  # fnmatch filter can find files containing black by putting `*`
+song_list = find_songs(album_list)  # case-sensitive in mac
 
 for s in song_list:
     print(s)
