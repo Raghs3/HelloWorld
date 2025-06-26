@@ -3,8 +3,10 @@ import fnmatch
 
 
 def find_albums(root, artist_name):
+    caps_name = artist_name.upper()  # for case preserving like mac
     for path, directories, files in os.walk(root):
-        for artist in fnmatch.filter(directories, artist_name):
+        # for artist in fnmatch.filter(directories, artist_name):
+        for artist in fnmatch.filter((d.upper() for d in directories), caps_name):
             subdir = os.path.join(path, artist)
             for album_path, albums, _ in os.walk(subdir):
                 for album in albums:
@@ -18,7 +20,7 @@ def find_songs(albums):
 
 
 album_list = find_albums("music", "black*")  # fnmatch filter can find files containing black by putting `*`
-song_list = find_songs(album_list)  # case-sensitive in mac, filter sensitivity based on file system
+song_list = find_songs(album_list)  # filter sensitivity based on file system
 
 for s in song_list:
     print(s)
