@@ -4,7 +4,7 @@ import sys
 def my_range(n: int):
     start = 0
     while start < n:
-        yield start
+        yield start  # function finishes after returning so have to use yield instead so further lines can be executed
         start += 1
 
 
