@@ -11,3 +11,4 @@ squares = [number ** 2 for number in numbers]  # the `[ ]` is the `list` compreh
 
 index_pos = numbers.index(number)
 print(squares[index_pos])
+# value of existing variable not affected in comprehension
