@@ -18,5 +18,5 @@ for meal in menu:
         meals.append("a meal was skipped")
 print(meals)  # same as comprehension
 
-meals = [meal for meal in menu if "spam" not in meal]
+meals = [meal for meal in menu if "spam" not in meal]  # can't have else when if used (filter)
 print(meals)
