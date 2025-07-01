@@ -23,7 +23,7 @@ output = []
 for x in text.split():
     output.append((x, len(x)))
 print(output)
- 
+
 # type the corresponding comprehension here:
-output = [(x, len(x)) for x in text.split()]
-print(output)
+output = [(x, len(x)) for x in text.split()]  # if we want to avoid repeated words we can use set comp
+print(output)  # this doesn't work for punctuations, will need nested comprehensions
