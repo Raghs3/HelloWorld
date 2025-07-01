@@ -10,9 +10,11 @@ menu = [
     ["chicken", "chips"]
 ]
 
+meals = []
 for meal in menu:
     if "spam" not in meal:
-        print(meal)
+        meals.append(meal)
+print(meals)  # same as comprehension
 
 meals = [meal for meal in menu if "spam" not in meal]
 print(meals)
