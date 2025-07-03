@@ -31,16 +31,27 @@ exits = {0: {"Q": 0},
          3: {"W": 1, "Q": 0},
          4: {"N": 1, "W": 2, "Q": 0},
          5: {"W": 2, "S": 1, "Q": 0}}
+# soln
+loc = 5
+# forest = [locations[exit] for exit in exits if loc in exits[exit].values()]
+# print(forest)
 
-results = [(locations[x], "yes") if x == 1 or x == 2 else (locations[x], "no") for x in locations]
-print(results)
+forest = [(exit, locations[exit]) for exit in exits if loc in exits[exit].values()]
+print(forest)
 
 
-# challenge 3
-result = []
-for x in locations:
-    if x in exits:
-        result.append("yes")
-    else:
-        result.append("no")
-print(result)
+
+
+# # challenge 2  # I failed
+# results = [(locations[x], "yes") if x == 1 or x == 2 else (locations[x], "no") for x in locations]
+# print(results)
+#
+#
+# # challenge 3  # I failed
+# result = []
+# for x in locations:
+#     if x in exits:
+#         result.append("yes")
+#     else:
+#         result.append("no")
+# print(result)
