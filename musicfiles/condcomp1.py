@@ -24,3 +24,4 @@ print(meals)
 x = 12
 expression = "Twelve" if x == 12 else "unknown"  # conditional statement like this use in comprehension for getting result like for loop
 print(expression)
+# [expression iteration]
