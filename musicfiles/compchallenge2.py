@@ -37,7 +37,7 @@ loc = 5
 forest = [locations[xit] for xit in exits if loc in exits[xit].values()]  # refactoring exit here doesn't change in 2nd comp as scope limited to comp only
 print(forest)
 
-for loc in sorted(locations):
+for loc in sorted(locations):  # no need to sort in 3.6 but it is not reliable so better to sort
     forest = [(exit, locations[exit]) for exit in exits if loc in exits[exit].values()]
     print("Locations leading to {}".format(loc), end='\t')
     print(forest)
