@@ -10,11 +10,14 @@
 #
 # The code from the end of the last video appears below, so you can check the result.
 
-for x in range(1, 31):
-    fizzbuzz = "fizz buzz" if x % 15 == 0 else "fizz" if x % 3 == 0 else "buzz" if x % 5 == 0 else str(x)
-    print(fizzbuzz)
+# for x in range(1, 31):
+#     fizzbuzz = "fizz buzz" if x % 15 == 0 else "fizz" if x % 3 == 0 else "buzz" if x % 5 == 0 else str(x)
+#     print(fizzbuzz)
 
 fizzbuzz = ["fizz buzz" if x % 15 == 0 else "fizz" if x % 3 == 0 else "buzz" if x % 5 == 0 else str(x)
           for x in range(1, 31)]
 print(fizzbuzz)
 # lists intended to be homogenous (not enforced)
+
+for buzz in fizzbuzz:
+    print(buzz.center(12, "*"))  # only works as all items are string, int doesn't have insert method
