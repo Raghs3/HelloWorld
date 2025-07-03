@@ -16,7 +16,7 @@
 # Finally, wrap your comprehension in a for loop, and print the lists of all the locations that lead to each of the
 # other locations in turn.
 # In other words, use a for loop to run the comprehension for each of the keys in the locations dictionary.
-from compchallenge1 import result
+
 
 locations = {0: "You are sitting in front of a computer learning Python",
              1: "You are standing at the end of a road before a small brick building",
@@ -32,5 +32,5 @@ exits = {0: {"Q": 0},
          4: {"N": 1, "W": 2, "Q": 0},
          5: {"W": 2, "S": 1, "Q": 0}}
 
-result = locations.values()
-print(result)
+results = locations.values()[0]
+print(results)
