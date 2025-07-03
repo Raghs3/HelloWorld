@@ -16,3 +16,6 @@ for x, y in [(i, i*j) for i in range(1, 11) for j in range(1, 11)]:
 
 # times2 = [[(i, i*j) for j in range(1, 11)] for i in range(1, 11)]:
 # print(times2)
+# if only want to iterate better to use generator expression, replace `[]` with `()`
+for x, y in ((i, i*j) for i in range(1, 11) for j in range(1, 11)):  # doesn't take up memory as list not created
+    print(x, y)
