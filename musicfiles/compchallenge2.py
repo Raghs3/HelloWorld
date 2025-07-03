@@ -31,13 +31,16 @@ exits = {0: {"Q": 0},
          3: {"W": 1, "Q": 0},
          4: {"N": 1, "W": 2, "Q": 0},
          5: {"W": 2, "S": 1, "Q": 0}}
+
 # soln
 loc = 5
-# forest = [locations[exit] for exit in exits if loc in exits[exit].values()]
-# print(forest)
-
-forest = [(exit, locations[exit]) for exit in exits if loc in exits[exit].values()]
+forest = [locations[xit] for xit in exits if loc in exits[xit].values()]  # refactoring exit here doesn't change in 2nd comp as scope limited to comp only
 print(forest)
+
+for loc in sorted(locations):
+    forest = [(exit, locations[exit]) for exit in exits if loc in exits[exit].values()]
+    print("Locations leading to {}".format(loc), end='\t')
+    print(forest)
 
 
 
