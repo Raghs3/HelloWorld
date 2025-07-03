@@ -36,11 +36,29 @@ exits = {0: {"Q": 0},
 loc = 5
 forest = [locations[xit] for xit in exits if loc in exits[xit].values()]  # refactoring exit here doesn't change in 2nd comp as scope limited to comp only
 print(forest)
+# soln
+forest = []
+for xit in exits:  # here important to use diff variable unlike comprehension as in global scope here
+    if loc in exits[xit].values():
+        forest.append(locations[xit])
+print(forest)
 
+print()
+# soln challenge 3
 for loc in sorted(locations):  # no need to sort in 3.6 but it is not reliable so better to sort
-    forest = [(exit, locations[exit]) for exit in exits if loc in exits[exit].values()]
+    forest = []
+    for xit in exits:  # here important to use diff variable unlike comprehension as in global scope here
+        if loc in exits[xit].values():
+            forest.append((xit, locations[xit]))
     print("Locations leading to {}".format(loc), end='\t')
     print(forest)
+
+
+# soln challenge 2
+# for loc in sorted(locations):  # no need to sort in 3.6 but it is not reliable so better to sort
+#     forest = [(exit, locations[exit]) for exit in exits if loc in exits[exit].values()]
+#     print("Locations leading to {}".format(loc), end='\t')
+#     print(forest)
 
 
 
