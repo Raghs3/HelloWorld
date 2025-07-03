@@ -13,3 +13,8 @@ print()
 
 for nested_meals in [[(burger, topping) for burger in burgers] for topping in toppings]:  # nested list of tuples
     print(nested_meals)  # expression is another list comprehension, outer iteration values used first
+
+print()
+
+for nested_meals in [[(burger, topping) for topping in toppings] for burger in burgers]:
+    print(nested_meals)  # changing order of iteration
