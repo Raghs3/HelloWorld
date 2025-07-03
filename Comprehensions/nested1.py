@@ -11,5 +11,5 @@ print()
 #     for topping in toppings:
 #         print((burger, topping))
 
-for nested_meals in [[(burger, topping) for burger in burgers] for topping in toppings]:
+for nested_meals in [[(burger, topping) for burger in burgers] for topping in toppings]:  # nested list of tuples
     print(nested_meals)
