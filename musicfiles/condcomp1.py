@@ -26,4 +26,19 @@ menu = [
 # print(expression)
 # [expression iteration]
 for meal in menu:
-    print(meal, "contains chicken" if "chicken" in meal else "contains bacon" if "bacon" in meal else "contains egg")
+    print(meal, "contains sausage" if "sausage" in meal else "contains bacon" if "bacon" in meal else "contains egg")  # contains egg is default if no other is satisfied
+    # if must have else after, but else can be followed bt if
+print()
+
+items = set()
+for meal in menu:
+    for item in meal:
+        items.add(item)
+print(items)
+print()
+
+for meal in menu:
+    for item in items:
+        if item in meal:
+            print("{} contains {}".format(meal, item))
+            break
