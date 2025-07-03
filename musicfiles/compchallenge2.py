@@ -32,5 +32,15 @@ exits = {0: {"Q": 0},
          4: {"N": 1, "W": 2, "Q": 0},
          5: {"W": 2, "S": 1, "Q": 0}}
 
-results = locations.values()[0]
+results = [(locations[x], "yes") if x == 1 or x == 2 else (locations[x], "no") for x in locations]
 print(results)
+
+
+# challenge 3
+result = []
+for x in locations:
+    if x in exits:
+        result.append("yes")
+    else:
+        result.append("no")
+print(result)
