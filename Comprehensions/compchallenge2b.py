@@ -46,3 +46,12 @@ for index, loc in enumerate(exits_to_destination_3):
     print("Locations leading to {}". format(index), end='\t')
     print(loc)
 """
+
+result_1 = timeit.timeit(nested_loop, globals=globals())
+print("Nested loop:\t{}".format(result_1))
+# result_2 = timeit.timeit(loop_comp, globals=globals())
+# print("Nested loop:\t{}".format(result_2))
+# result_3 = timeit.timeit(nested_comp, globals=globals())
+# print("Nested loop:\t{}".format(result_3))
+
+# use setup when possible as it allows to be specific, but we used globals here for namespace
