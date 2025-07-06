@@ -50,10 +50,10 @@ for index, loc in enumerate(exits_to_destination_3):
 """
 
 result_1 = timeit.timeit(nested_loop, setup, number=100)
-result_2 = timeit.timeit(loop_comp, globals=globals(), number=100)
-result_3 = timeit.timeit(nested_comp, globals=globals(), number=100)
+result_2 = timeit.timeit(loop_comp, setup, number=100)
+result_3 = timeit.timeit(nested_comp, setup, number=100)
 print("Nested loop:\t{}".format(result_1))
-print("Loop comp:\t{}".format(result_2))
+print("Loop and comp:\t{}".format(result_2))
 print("Nested comp:\t{}".format(result_3))
 
 # use setup when possible as it allows to be specific, but we used globals here for namespace
