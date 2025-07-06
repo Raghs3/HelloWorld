@@ -49,9 +49,9 @@ for index, loc in enumerate(exits_to_destination_3):
     print(loc)
 """
 
-result_1 = timeit.timeit(nested_loop, setup, number=100)
-result_2 = timeit.timeit(loop_comp, setup, number=100)
-result_3 = timeit.timeit(nested_comp, setup, number=100)
+result_1 = timeit.timeit(nested_loop, setup, number=1000)
+result_2 = timeit.timeit(loop_comp, setup, number=1000)
+result_3 = timeit.timeit(nested_comp, setup, number=1000)
 print("Nested loop:\t{}".format(result_1))
 print("Loop and comp:\t{}".format(result_2))
 print("Nested comp:\t{}".format(result_3))
