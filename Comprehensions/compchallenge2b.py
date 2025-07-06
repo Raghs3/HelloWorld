@@ -1,5 +1,6 @@
 import timeit
 
+setup = """\
 locations = {0: "You are sitting in front of a computer learning Python",
              1: "You are standing at the end of a road before a small brick building",
              2: "You are at the top of a hill",
@@ -13,6 +14,7 @@ exits = {0: {"Q": 0},
          3: {"W": 1, "Q": 0},
          4: {"N": 1, "W": 2, "Q": 0},
          5: {"W": 2, "S": 1, "Q": 0}}
+"""
 
 print("nested for loops")
 print("----------------")
@@ -47,7 +49,7 @@ for index, loc in enumerate(exits_to_destination_3):
     print(loc)
 """
 
-result_1 = timeit.timeit(nested_loop, globals=globals(), number=100)
+result_1 = timeit.timeit(nested_loop, setup, number=100)
 result_2 = timeit.timeit(loop_comp, globals=globals(), number=100)
 result_3 = timeit.timeit(nested_comp, globals=globals(), number=100)
 print("Nested loop:\t{}".format(result_1))
@@ -55,3 +57,4 @@ print("Loop comp:\t{}".format(result_2))
 print("Nested comp:\t{}".format(result_3))
 
 # use setup when possible as it allows to be specific, but we used globals here for namespace
+# using setup coz it is easy to do that here
