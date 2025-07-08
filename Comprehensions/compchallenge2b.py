@@ -34,13 +34,16 @@ exits = {0: {"Q": 0},
 # print("----------------")
 # nested_loop = """\
 def nested_loop():
+    result = []
     for loc in sorted(locations):
         exits_to_destination_1 = []
         for xit in exits:
             if loc in exits[xit].values():
                 exits_to_destination_1.append((xit, locations[xit]))
-        print("Locations leading to {}".format(loc), end='\t')
-        print(exits_to_destination_1)
+        result.append(exits_to_destination_1)
+        # print("Locations leading to {}".format(loc), end='\t')
+        # print(exits_to_destination_1)
+    return result
 
 print()
 
@@ -48,11 +51,13 @@ print()
 # print("------------------------------------")
 # loop_comp = """\
 def loop_comp():
+    result = []
     for loc in sorted(locations):
         exits_to_destination_2 = [(xit, locations[xit]) for xit in exits if loc in exits[xit].values()]
-        print("Locations leading to {}".format(loc), end='\t')
-        print(exits_to_destination_2)
-
+        result.append(exits_to_destination_2)
+        # print("Locations leading to {}".format(loc), end='\t')
+        # print(exits_to_destination_2)
+    return result
 print()
 
 # print("nested comprehension")
@@ -61,12 +66,17 @@ print()
 def nested_comp():
     exits_to_destination_3 = [[(xit, locations[xit]) for xit in exits if loc in exits[xit].values()]
                               for loc in sorted(locations)]
-    for index, loc in enumerate(exits_to_destination_3):
-        print("Locations leading to {}". format(index), end='\t')
-        print(loc)
+    # for index, loc in enumerate(exits_to_destination_3):
+    #     print("Locations leading to {}". format(index), end='\t')
+    #     print(loc)
+    return exits_to_destination_3
 
 
-result_1 = timeit.timeit(nested_loop, setup, number=1000)
+print(nested_loop())
+print(loop_comp())
+print(nested_comp())
+
+result_1 = timeit.timeit(nested_loop, setup, number=1000)  # only works with functions if they don't require arguments
 result_2 = timeit.timeit(loop_comp, setup, number=1000)
 result_3 = timeit.timeit(nested_comp, setup, number=1000)
 print("Nested loop:\t{}".format(result_1))
