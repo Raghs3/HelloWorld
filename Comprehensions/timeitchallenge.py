@@ -33,4 +33,4 @@ y = factorial(130)
 """
 
 print(timeit.timeit(fact_test, number=10000))
-print(timeit.timeit(factorial_test, number=10000))
+print(timeit.timeit(factorial_test, number=10000))  # recursive takes longer
