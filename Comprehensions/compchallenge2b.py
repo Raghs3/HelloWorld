@@ -43,6 +43,10 @@ def nested_loop():
         result.append(exits_to_destination_1)
         # print("Locations leading to {}".format(loc), end='\t')
         # print(exits_to_destination_1)
+    # print the result before returning
+    for x in result:
+        pass
+
     return result
 
 print()
@@ -57,8 +61,12 @@ def loop_comp():
         result.append(exits_to_destination_2)
         # print("Locations leading to {}".format(loc), end='\t')
         # print(exits_to_destination_2)
+        # print the result before returning
+    for x in result:
+        pass
+
     return result
-print()
+# print()
 
 # print("nested comprehension")
 # print("--------------------")
@@ -69,6 +77,18 @@ def nested_comp():
     # for index, loc in enumerate(exits_to_destination_3):
     #     print("Locations leading to {}". format(index), end='\t')
     #     print(loc)
+    # print the result before returning
+    for x in exits_to_destination_3:
+        pass
+
+    return exits_to_destination_3
+
+
+def nested_gen():
+    exits_to_destination_3 = ([(xit, locations[xit]) for xit in exits if loc in exits[xit].values()]
+                              for loc in sorted(locations))
+    for x in exits_to_destination_3:
+        pass
     return exits_to_destination_3
 
 
@@ -79,9 +99,11 @@ print(nested_comp())
 result_1 = timeit.timeit(nested_loop, setup, number=1000)  # only works with functions if they don't require arguments
 result_2 = timeit.timeit(loop_comp, setup, number=1000)
 result_3 = timeit.timeit(nested_comp, setup, number=1000)
+result_4 = timeit.timeit(nested_gen, setup, number=1000)
 print("Nested loop:\t{}".format(result_1))
 print("Loop and comp:\t{}".format(result_2))
 print("Nested comp:\t{}".format(result_3))
+print("Nested gen:\t{}".format(result_4))  # 10 times faster, but perf penalty when iterating over the generator
 
 # use setup when possible as it allows to be specific, but we used globals here for namespace
 # using setup coz it is easy to do that here
