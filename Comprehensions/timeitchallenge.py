@@ -9,6 +9,7 @@
 # of one million will take a long time to run.
  
 import timeit
+from statistics import mean, stdev
  
 
 def fact(n):
@@ -38,8 +39,8 @@ if __name__ == "__main__":
     list1 = timeit.repeat("x = fact(130)", setup="from __main__ import fact", number=10000, repeat=6)  # repeat runs test several times and returns list of individual timings
     list2 = timeit.repeat("x = factorial(130)", setup="from __main__ import factorial", number=10000, repeat=6)  # defaults to repeating 3
 
-    print(sum(list1))
-    print(sum(list2))
+    print(mean(list1), stdev(list1))  # meaningless kind of here, as timeit module says so itself
+    print(mean(list2), stdev(list2))  # just a means to show statistics module
 
 
 
