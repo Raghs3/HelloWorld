@@ -28,11 +28,12 @@ def factorial(n):
 
 
 if __name__ == "__main__":
-    print(timeit.timeit("x = fact(130)", setup="from __main__ import fact", number = 10000))
-    print(timeit.timeit("x = factorial(130)", setup="from __main__ import factorial", number = 10000))
     # setup can be imported from modules
+    # print(timeit.timeit("x = fact(130)", setup="from __main__ import fact", number = 10000))
+    # print(timeit.timeit("x = factorial(130)", setup="from __main__ import factorial", number = 10000))
 
-
+    print(timeit.repeat("x = fact(130)", setup="from __main__ import fact", number=10000, repeat=6))  # repeat runs test several times and returns list of individual timings
+    print(timeit.repeat("x = factorial(130)", setup="from __main__ import factorial", number=10000, repeat=6))  # defaults to repeating 3
 
 
 
