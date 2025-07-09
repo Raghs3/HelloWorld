@@ -43,7 +43,7 @@ if __name__ == "__main__":
     print(mean(list2), stdev(list2))  # just a means to show statistics module
 
 
-
+    # Original
 
     # fact_test = """\
     # def fact(n):
