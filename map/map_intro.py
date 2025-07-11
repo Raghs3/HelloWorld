@@ -13,3 +13,6 @@ print(words)
 # use map
 map_words = list(map(str.upper, text.split(' ')))
 print(map_words)
+
+for x in map(str.upper, text.split(' ')):  # directly iterate over map iterable object instead of converting iterable to list
+    print(x)
