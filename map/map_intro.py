@@ -16,3 +16,5 @@ print(map_words)
 
 for x in map(str.upper, text.split(' ')):  # directly iterate over map iterable object instead of converting iterable to list
     print(x)
+
+# comprehensions are easier to write and read than map, need to test performance
