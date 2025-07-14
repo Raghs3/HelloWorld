@@ -37,3 +37,4 @@ if __name__ == '__main__':
     print(timeit.timeit(map_caps, number=100000))
     print(timeit.timeit(comp_words, number=100000))
     print(timeit.timeit(map_words, number=100000))
+    # acc to course comp faster, for me map faster
