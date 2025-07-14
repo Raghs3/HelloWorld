@@ -19,7 +19,8 @@ print("-" * 40)
 
 
 def spamless_comp():
-    meals = [meal for meal in menu if "spam" not in meal]
+    # meals = [meal for meal in menu if "spam" not in meal]
+    meals = [meal for meal in menu if not_spam(meal)]
     return meals
 
 
@@ -40,3 +41,5 @@ if __name__ == "__main__":
     print(spamless_filter())
     print(timeit.timeit(spamless_comp, number=100000))
     print(timeit.timeit(spamless_filter, number=100000))  # taking nearly twice the time
+    # mainly slower coz of overhead of the fn call of not_spam function
+    # if comp also uses same fn as filter then filter is faster
