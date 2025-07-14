@@ -32,4 +32,4 @@ if __name__ == '__main__':
     print(map_caps())
     print(comp_words())
     print(map_words())
-    print(timeit.timeit("comp_caps()", setup="from map_intro import com")
+    print(timeit.timeit("comp_caps()", setup="from map_intro import comp_caps", number=100000))
