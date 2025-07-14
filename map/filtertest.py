@@ -20,3 +20,11 @@ meals = [meal for meal in menu if "spam" not in meal]
 print(meals)
 
 print("-" * 40)
+
+
+def not_spam(meal_list: list):
+    return "spam" not in meal_list
+
+
+spamless_meals = list(filter(not_spam, menu)
+print(spamless_meals)
