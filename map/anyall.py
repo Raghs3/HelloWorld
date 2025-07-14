@@ -21,3 +21,10 @@ empty string '': {6}
 empty string "": {7}
 empty mapping {{}}: {8}
 """.format(False, bool(None), bool(0), bool(0.0), bool([]), bool(()), bool(''), bool(""), bool({})))
+
+print("=" * 80)
+name = ""
+if name:
+    print("Hello {}".format(name))
+else:
+    print("Welcome, person with no name")
