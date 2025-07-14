@@ -28,4 +28,4 @@ def not_spam(meal_list: list):
 
 spamless_meals = list(filter(not_spam, menu))  # need to create a function that does filtering
 print(spamless_meals)  # filter takes 2 args, fn that does filtering and iterable to iterate over
-# identical to comp
+# output identical to comp
