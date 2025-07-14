@@ -23,7 +23,7 @@ empty mapping {{}}: {8}
 """.format(False, bool(None), bool(0), bool(0.0), bool([]), bool(()), bool(''), bool(""), bool({})))
 
 print("=" * 80)
-name = ""
+name = "Tim"
 if name:
     print("Hello {}".format(name))
 else:
