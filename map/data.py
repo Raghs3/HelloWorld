@@ -12,8 +12,9 @@ people = [
 # Named Tuples are described in the documentation
 # https://docs.python.org/3/library/collections.html#collections.namedtuple
 # field_names can't start with underscore
-Plant = namedtuple('Plant', ['name', 'scientific_name', 'lifecycle', 'plant_type'])  # change to P to see how it affects then undo changes
-PlantDetails = namedtuple('PlantDetails', ['scientific_name', 'lifecycle', 'plant_type'])
+# Plant = namedtuple('Plant', ['name', 'scientific_name', 'lifecycle', 'plant_type'])  # change to P to see how it affects then undo changes
+Plant = namedtuple('Plant', 'name, scientific_name, lifecycle, plant_type')  # can give comma separated names in string as well
+PlantDetails = namedtuple('PlantDetails', ['scientific_name', 'lifecycle', 'plant_type'])  # the typename is printed when printing the named tuple
 # variable name and typename same to avoid confusion
 basic_plants_list = [
     ("Andromeda", "Pieris japonica", "Evergreen", "Shrub"),
