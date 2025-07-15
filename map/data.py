@@ -14,7 +14,7 @@ people = [
 
 Plant = namedtuple('Plant', ['name', 'scientific_name', 'lifecycle', 'plant_type'])
 PlantDetails = namedtuple('PlantDetails', ['scientific_name', 'lifecycle', 'plant_type'])
-
+# variable name and typename same to avoid confusion
 basic_plants_list = [
     ("Andromeda", "Pieris japonica", "Evergreen", "Shrub"),
     ("Bellflower", "Campanula", "perennial", "Flower"),
