@@ -12,7 +12,7 @@ people = [
 # Named Tuples are described in the documentation
 # https://docs.python.org/3/library/collections.html#collections.namedtuple
 
-Plant = namedtuple('Plant', ['name', 'scientific_name', 'lifecycle', 'plant_type'])
+Plant = namedtuple('Plant', ['name', 'scientific_name', 'lifecycle', 'plant_type'])  # change to P to see how it affects then undo changes
 PlantDetails = namedtuple('PlantDetails', ['scientific_name', 'lifecycle', 'plant_type'])
 # variable name and typename same to avoid confusion
 basic_plants_list = [
