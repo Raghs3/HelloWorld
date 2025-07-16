@@ -15,7 +15,7 @@ while True:
 
     choice = input('Please select an option: ').upper()
 
-    description, function, reverse = options.get(choice, (None, None, None))
+    description, function, reverse = options.get(choice, (None, None, None))  # incase user inputs wrong value, by default will become None
     if description:
         medals_table.sort(key=function, reverse=reverse)
     else:
