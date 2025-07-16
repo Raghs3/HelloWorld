@@ -10,6 +10,7 @@ def bubble_sort(data: list) -> None:
             if data[j] > data[j + 1]:
                 data[j], data[j + 1] = data[j + 1], data[j]
                 swapped = True
+
         print(f"End of pass {i}. `data` is now {data}")
         if not swapped:
             # The last pass resulted in no swaps.
