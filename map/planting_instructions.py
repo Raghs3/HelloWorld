@@ -19,4 +19,4 @@ with (open('planting_instructions.txt', 'w', encoding='utf-8') as output_file):
         #     where_to_plant = 'garden'
         #     who = 'gardener'
 
-        print(f"{plant.name}: {where_to_plant}", file=output_file)
+        print(f"{plant.name}: {where_to_plant}, {who}", file=output_file)
