@@ -7,4 +7,5 @@ def double(x):
 
 
 print(anon)  # function <lambda>
-print(double)
+print(lambda x: x * 2)  # same as above
+print(double)  # function has a name `double`
