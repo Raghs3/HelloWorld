@@ -1,4 +1,4 @@
-from data import people, basic_plants_list, plants_list
+from data import people, plants_list, plants_dict
 
 # people = []  # rem the gotcha, all returns true if empty list
 
@@ -11,3 +11,8 @@ if any([plant.plant_type == "Grass" for plant in plants_list]):
     print("This pack contains grass")
 else:
     print("No grasses in this pack")
+
+if any(plant.plant_type == "Grass" for plant in plants_dict.values()):
+    print("This dict contains grasses")
+else:
+    print("No grasses in the dict")
