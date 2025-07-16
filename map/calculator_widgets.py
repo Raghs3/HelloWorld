@@ -21,6 +21,9 @@ class CopyLabel(tk.Label):
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
 
+        # Bind the double click event to our on_copy method
+        self.bind('<Double-Button-1>', self.on_copy)
+
     def on_copy(self, event):
         self.clipboard_clear()
         self.clipboard_append(self['text'])
