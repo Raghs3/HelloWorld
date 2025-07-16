@@ -46,11 +46,11 @@ row = 0
 for key_row in keys:
     col = 0
     for key in key_row:
-        # btn = tk.Button(keypad, text=key[0], width=2,
-        #                 command=lambda char=key[0]: btn_click(char))  # used lambda to pass param to function
         btn = tk.Button(keypad, text=key[0], width=2,
-                        command=lambda: btn_click(key[0]))  # doesn't work, gives all button same value as last item in list  # python leaks the loop control variable
-        print(lambda: btn_click(key[0]))  # creates a new function everytime loop runs
+                        command=lambda char=key[0]: btn_click(char))  # used lambda to pass param to function
+        # btn = tk.Button(keypad, text=key[0], width=2,
+        #                 command=lambda: btn_click(key[0]))  # doesn't work, gives all button same value as last item in list  # python leaks the loop control variable
+        # print(lambda: btn_click(key[0]))  # creates a new function everytime loop runs  # uses global variable key[0] hence always same value
         btn.grid(row=row, column=col, columnspan=key[1], sticky=tk.E + tk.W)
         col += key[1]
     row += 1
