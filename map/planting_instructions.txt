@@ -1,4 +1,5 @@
 Andromeda: garden, gardener
+Bellflower: garden, gardener
 Evening Primrose: garden, gardener
 French Marigold: garden, gardener
 Hydrangea: garden, gardener
@@ -9,7 +10,6 @@ Queen Anne's Lace: garden, gardener
 Snapdragon: garden, gardener
 Sunflower: garden, gardener
 Witch Hazel: garden, gardener
-Bellflower: window box, me
 China Pink: window box, me
 Daffodil: window box, me
 Golden Hakone Grass: window box, me
