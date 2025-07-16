@@ -53,7 +53,7 @@ class CalculatorGrid(tk.Frame):
         """Called by a CalculatorButton when it's clicked."""
         if char == '=':
             if self.result.get() and all(caption in CalculatorGrid.allowed_chars
-                                         for caption in self.result.get()):
+                                         for caption in self.result.get()):  # now making sure input is within allowed chars to avoid hacking
                 try:
                     answer = str(eval(self.result.get()))
                 except SyntaxError:
