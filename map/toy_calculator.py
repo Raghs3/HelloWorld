@@ -8,6 +8,26 @@ keys = [[('C', 1), ('CE', 1)],
         [('0', 1), ('=', 2), ('/', 1)],
         ]
 
+
+def btn_click(char):
+    if char == '=':
+        if result.get():
+            try:
+                answer = str(eval(result.get()))
+            except SyntaxError:
+                tk.messagebox.showerror("Error", "Your calculation isn't valid.")
+            except ZeroDivisionError:
+                tk.messagebox.showerror('Error', "You can't divide by zero.")
+            else:
+                result.delete(0, tk.END)
+                result.insert(0, answer)
+    elif char == 'C':
+        result.delete(0, tk.END)
+    elif char == 'CE':
+        result.delete(len(result.get()) - 1, tk.END)
+    else:
+        result.insert(tk.END, char)
+
 main_window_padding = 8
 
 main_window = tk.Tk()
