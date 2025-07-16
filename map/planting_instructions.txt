@@ -1,20 +1,20 @@
 Andromeda: garden, gardener
-Bellflower: garden, gardener
-China Pink: window box, me
-Daffodil: window box, me
 Evening Primrose: garden, gardener
 French Marigold: garden, gardener
-Golden Hakone Grass: window box, me
 Hydrangea: garden, gardener
-Iris: window box, me
 Japanese Camellia: garden, gardener
-Lavender: window box, me
 Lilac: garden, gardener
 Magnolia: garden, gardener
-Peony: window box, me
 Queen Anne's Lace: garden, gardener
-Red Hot Poker: window box, me
 Snapdragon: garden, gardener
 Sunflower: garden, gardener
-Tiger Lily: window box, me
 Witch Hazel: garden, gardener
+Bellflower: window box, me
+China Pink: window box, me
+Daffodil: window box, me
+Golden Hakone Grass: window box, me
+Iris: window box, me
+Lavender: window box, me
+Peony: window box, me
+Red Hot Poker: window box, me
+Tiger Lily: window box, me
