@@ -1,5 +1,5 @@
 from medals_data import medals_table
-
+# storing functions in dictionary, making it easier, and code shorter
 options = {
     'C': ('country', lambda d: d['country'], False),
     'G': ('gold medals', lambda d: d['gold'], True),
