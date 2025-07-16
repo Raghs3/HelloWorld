@@ -26,6 +26,8 @@ class CalculatorGrid(tk.Frame):
             [('0', 1), ('=', 2), ('/', 1)],
             ]
 
+    allowed_chars = [key[0] for key_row in keys for key in key_row]
+
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
 
@@ -50,7 +52,8 @@ class CalculatorGrid(tk.Frame):
     def on_click(self, char: str):
         """Called by a CalculatorButton when it's clicked."""
         if char == '=':
-            if self.result.get():
+            if self.result.get() and all(caption in CalculatorGrid.allowed_chars
+                                         for caption in self.result.get()):
                 try:
                     answer = str(eval(self.result.get()))
                 except SyntaxError:
