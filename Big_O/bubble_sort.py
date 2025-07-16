@@ -21,11 +21,11 @@ def bubble_sort(data: list) -> None:
 
 
 # numbers = [3, 2, 4, 1, 5, 7, 6]
-# numbers = [7, 6, 5, 4, 3, 2, 1]  # 21 passes instead of 36
+# numbers = [7, 6, 5, 4, 3, 2, 1]  # 21 passes instead of 36  # worst case
 # numbers = list(range(70, 0, -1))
 # print(len(numbers))
 # numbers = [1, 2, 3, 4, 6, 5, 7]
-numbers = [1, 2, 3, 4, 5, 6, 7]
+numbers = [1, 2, 3, 4, 5, 6, 7]  # best case
 
 print(f"Sorting {numbers}")
 bubble_sort(numbers)
