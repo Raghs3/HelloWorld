@@ -13,7 +13,8 @@ def bubble_sort(data: list) -> None:
     print(f"Comparison_count is {comparison_count}")
 
 
-numbers = [3, 2, 4, 1, 5, 7, 6]
+# numbers = [3, 2, 4, 1, 5, 7, 6]
+numbers = [7, 6, 5, 4, 3, 2, 1]  # 21 passes instead of 36
 print(f"Sorting {numbers}")
 bubble_sort(numbers)
 print(f"The sorted data is {numbers}")
