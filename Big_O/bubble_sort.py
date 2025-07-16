@@ -15,6 +15,9 @@ def bubble_sort(data: list) -> None:
 
 # numbers = [3, 2, 4, 1, 5, 7, 6]
 numbers = [7, 6, 5, 4, 3, 2, 1]  # 21 passes instead of 36
+numbers = list(range(70, 0, -1))
+print(len(numbers))
+
 print(f"Sorting {numbers}")
 bubble_sort(numbers)
 print(f"The sorted data is {numbers}")
