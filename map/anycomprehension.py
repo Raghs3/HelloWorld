@@ -17,7 +17,7 @@ if any(plant.plant_type == "Grass" for plant in plants_dict.values()):
 else:
     print("No grasses in the dict")
 
-if any(plants_dict[key].plant_type == "Grass" for key in plants_dict):
-    print("This dict contains grasses")
+if any(plants_dict[key].plant_type == "Cactus" for key in plants_dict):
+    print("This dict contains cacti")
 else:
-    print("No grasses in the dict")
+    print("No cacti in the dict")
