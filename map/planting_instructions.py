@@ -16,7 +16,9 @@ def sort_perennials(item) -> str:
         return '0' + item.name
 
 
-plants_list.sort(key=sort_perennials)
+# plants_list.sort(key=sort_perennials)
+plants_list.sort(key=lambda item: '1' + item.name if item.lifecycle == 'Perennial'
+                        else '0' + item.name)
 
 
 with (open('planting_instructions.txt', 'w', encoding='utf-8') as output_file):
