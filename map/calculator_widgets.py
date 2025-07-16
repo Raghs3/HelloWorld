@@ -32,7 +32,7 @@ class CalculatorGrid(tk.Frame):
         super().__init__(master, **kwargs)
 
         max_columns = max(len(row) for row in CalculatorGrid.keys)
-        self.result = tk.Entry(self)
+        self.result = tk.Entry(self)  # can disable, but will need to enable and disable when editing, so instead can use label
         self.result.grid(row=0, column=0, columnspan=max_columns, sticky='nsew')
 
         # Add the buttons
