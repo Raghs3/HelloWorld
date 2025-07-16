@@ -28,6 +28,7 @@ def btn_click(char):
     else:
         result.insert(tk.END, char)
 
+
 main_window_padding = 8
 
 main_window = tk.Tk()
