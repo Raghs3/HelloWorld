@@ -9,3 +9,8 @@ class CalculatorButton(tk.Button):
         # self.callback = kwargs.pop('callback', None)
         self.callback = callback
         super().__init__(master, **kwargs)
+        self.config(command=self.on_click)
+
+    def on_click(self):
+        if self.callback:
+            self.callback(self['text'])
