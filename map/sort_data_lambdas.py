@@ -9,7 +9,7 @@ options = {
 }
 
 while True:
-    for option, (description, *_) in options.items():
+    for option, (description, *_) in options.items():  # this works as we used *, like *args
         print(f'{option}: Sort by {description}')
     print('Invalid choices will exit.')
 
