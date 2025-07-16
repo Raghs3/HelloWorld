@@ -41,7 +41,7 @@ basic_plants_list = [
 
 plants_list = [
     Plant("Andromeda", "Pieris japonica", "Evergreen", "Shrub"),
-    Plant("Bellflower", "Campanula", "Perennial", "Flower"),
+    Plant("Bellflower", "Campanula", "perennial", "Flower"),
     Plant("China Pink", "Dianthus", "Perennial", "Flower"),
     Plant("Daffodil", "Narcissus", "Perennial", "Flower"),
     Plant("Evening Primrose", "Oenothera", "Biennial", "Flower"),
