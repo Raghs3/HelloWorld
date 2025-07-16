@@ -4,7 +4,7 @@ def bubble_sort(data: list) -> None:
     comparison_count = 0
 
     for i in range(n - 1):
-        for j in range(n - 1):
+        for j in range(n - i - 1):  # improved bubble sort algo, fewer comparisons
             comparison_count += 1
             if data[j] > data[j + 1]:
                 data[j], data[j + 1] = data[j + 1], data[j]
