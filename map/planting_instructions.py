@@ -11,7 +11,7 @@ from data import plants_list
 with (open('planting_instructions.txt', 'w', encoding='utf-8') as output_file):
     for plant in plants_list:
         where_to_plant, who = ('window box', 'me') if plant.lifecycle == 'Perennial' \
-            else ('garden', 'gardener')
+            else ('garden', 'gardener')  # need parentheses in these tuples
         # if plant.lifecycle == "Perennial":
         #     where_to_plant = 'window box'
         #     who = 'me'
