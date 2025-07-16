@@ -31,7 +31,7 @@ print(f"Sorting {numbers}")
 bubble_sort(numbers)
 print(f"The sorted data is {numbers}")
 
-
+# Big O of Bubble Sort is still n^2 even after all the optimizations
 
 # simple repr of line 10
 # x = 1
