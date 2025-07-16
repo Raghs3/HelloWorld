@@ -35,6 +35,7 @@ main_window = tk.Tk()
 main_window.title("Calculator")
 main_window.geometry('640x480-8-200')
 main_window['padx'] = main_window_padding
+main_window.columnconfigure(0, weight=1)
 
 result = tk.Entry(main_window)
 result.grid(row=0, column=0, sticky='nsew')
