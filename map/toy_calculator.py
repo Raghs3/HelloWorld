@@ -54,6 +54,8 @@ for key_row in keys:
         col += key[1]
     row += 1
 
+print(key)  # output: ('/', 1)
+
 main_window.update()
 main_window.minsize(keypad.winfo_width() + main_window_padding * 2, result.winfo_height() + keypad.winfo_height())
 # main_window.maxsize(keypad.winfo_width() + main_window_padding * 2, result.winfo_height() + keypad.winfo_height())
