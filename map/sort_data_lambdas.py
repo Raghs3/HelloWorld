@@ -21,6 +21,6 @@ while True:
     else:
         break
 
-    print(f'Sorted by {options[choice][0]}')
+    print(f'Sorted by {description}')
     for row in range(10):
         print(medals_table[row])
