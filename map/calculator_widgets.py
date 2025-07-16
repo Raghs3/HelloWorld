@@ -16,6 +16,17 @@ class CalculatorButton(tk.Button):
             self.callback(self['text'])
 
 
+class CopyLabel(tk.Label):
+    """A Label that allows copying its text to the clipboard"""
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+
+    def on_copy(self, event):
+        self.clipboard_clear()
+        self.clipboard_append(self['text'])
+        tk.messagebox.showinfo('Clipboard', 'text copied')
+
+
 class CalculatorGrid(tk.Frame):
     """A tkinter Frame that displays buttons and implements a simple calculator"""
 
