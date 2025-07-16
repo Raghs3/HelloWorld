@@ -47,7 +47,7 @@ class CalculatorGrid(tk.Frame):
 
         max_columns = max(len(row) for row in CalculatorGrid.keys)
         # self.result = tk.Entry(self)  # can disable, but will need to enable and disable when editing, so instead can use label, but can't copy results
-        self.result = tk.Label(self, borderwidth=2, relief='sunken', anchor='w', bg='white')
+        self.result = CopyLabel(self, borderwidth=2, relief='sunken', anchor='w', bg='white')
         self.result.grid(row=0, column=0, columnspan=max_columns, sticky='nsew')
 
         # Add the buttons
