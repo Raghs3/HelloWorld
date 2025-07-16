@@ -68,7 +68,6 @@ class CalculatorGrid(tk.Frame):
             self.result.insert(tk.END, char)
 
 
-
 def test():
     def clicked(caption: str):
         print(f'{caption} was clicked')
