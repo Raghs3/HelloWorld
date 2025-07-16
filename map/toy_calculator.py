@@ -46,8 +46,10 @@ row = 0
 for key_row in keys:
     col = 0
     for key in key_row:
+        # btn = tk.Button(keypad, text=key[0], width=2,
+        #                 command=lambda char=key[0]: btn_click(char))  # used lambda to pass param to function
         btn = tk.Button(keypad, text=key[0], width=2,
-                        command=lambda char=key[0]: btn_click(char))  # used lambda to pass param to function
+                        command=lambda: btn_click(key[0]))  # doesn't work, gives all button same value as last item in list
         btn.grid(row=row, column=col, columnspan=key[1], sticky=tk.E + tk.W)
         col += key[1]
     row += 1
