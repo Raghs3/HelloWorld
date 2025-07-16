@@ -10,5 +10,6 @@ if age >= 18:
 else:
     print("Please come back in {0} years".format(18 - age))
 
-message = "You are old enough to vote" if age >= 18 else "Please come back in {0} years".format(18 - age)
+message = "You are old enough to vote" if age >= 18 \
+    else "Please come back in {0} years".format(18 - age)
 print(message)
